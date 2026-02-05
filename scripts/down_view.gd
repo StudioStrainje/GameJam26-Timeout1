@@ -25,4 +25,5 @@ func _process(delta: float) -> void:
 		game.copied_count -= 1
 		game.pasted_count += 1
 		status.text = str(game.pasted_count)
+		await get_tree().create_timer(.25).timeout
 		progress_bar.value = 0
