@@ -1,3 +1,28 @@
 [gd_scene format=3 uid="uid://2c8x4ln1pbcx"]
 
+[ext_resource type="PackedScene" uid="uid://c68u0l54matld" path="res://scenes/forward_view.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://b6nvfq6hcpdp4" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://bowjoid3fxnkf" path="res://scenes/left_view.tscn" id="3_p57ef"]
+[ext_resource type="PackedScene" uid="uid://ciccd40v1ges3" path="res://scenes/right_view.tscn" id="4_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://bhcj6ax13omks" path="res://scenes/up_view.tscn" id="5_gee14"]
+[ext_resource type="PackedScene" uid="uid://c14743fdxuap7" path="res://scenes/down_view.tscn" id="6_0tnpc"]
+
 [node name="Game" type="Node2D" unique_id=1245125645]
+script = ExtResource("1_yqjtg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2004369781]
+
+[node name="ForwardView" parent="." unique_id=858498838 instance=ExtResource("1_uwrxv")]
+unique_name_in_owner = true
+
+[node name="LeftView" parent="." unique_id=1327673216 instance=ExtResource("3_p57ef")]
+unique_name_in_owner = true
+
+[node name="RightView" parent="." unique_id=464233084 instance=ExtResource("4_u5sy4")]
+unique_name_in_owner = true
+
+[node name="UpView" parent="." unique_id=1779130352 instance=ExtResource("5_gee14")]
+unique_name_in_owner = true
+
+[node name="DownView" parent="." unique_id=1131090437 instance=ExtResource("6_0tnpc")]
+unique_name_in_owner = true
