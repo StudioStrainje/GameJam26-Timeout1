@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://v4dyp54mhpmt"]
+
+[ext_resource type="Script" uid="uid://ldmcakqc873q" path="res://scripts/credits.gd" id="1_0bpdh"]
+
+[node name="Control" type="Control" unique_id=1672299568]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0bpdh")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1375690296]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1528751656]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -175.0
+offset_right = 225.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1752818279]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "Made by the best team ever, for everyone.
+
+Backkground design: David Galambos
+Characer design: Dano
+Deverlopers: Filip Konc, Dominik Toth
+Sound design: Adam Balogh
+Level and game design: all of us
+
+Made at GameJam26 in Nitra, SK."
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=45002604]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -280.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer2" unique_id=908297933]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_back_pressed"]
