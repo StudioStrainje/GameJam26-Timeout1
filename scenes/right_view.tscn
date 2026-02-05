@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://btkhttaspgi2k" path="res://scripts/right_view.gd" id="1_v4hlj"]
 [ext_resource type="Texture2D" uid="uid://onwrojs8p3u8" path="res://assets/linus-torvalds.jpg" id="2_t8vlc"]
 [ext_resource type="Texture2D" uid="uid://6qbcguri6mgv" path="res://assets/ltt.jpg" id="3_n7oqu"]
+[ext_resource type="Texture2D" uid="uid://bqqwte0m16vrh" path="res://assets/rms.jpg" id="4_t8vlc"]
 
 [node name="RightView" type="Node2D" unique_id=858498838]
 script = ExtResource("1_v4hlj")
@@ -31,3 +32,19 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "RIGHT"
 vertical_alignment = 1
+
+[node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=2093192201]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = -240.0
+offset_right = 262.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+step = 0.0
+value = 100.0
+texture_progress = ExtResource("4_t8vlc")

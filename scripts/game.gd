@@ -30,13 +30,13 @@ func get_cheating_views():
 	return cheating_views
 
 func generate_new_level():
-	cheating_views = []
-	if level < 3:
-		for i in range(level):
-			cheating_views.append(rng.randi_range(1, len(VIEW)))
-	else:
-		for i in range(3):
-			cheating_views.append(rng.randi_range(1, len(VIEW)))
+	cheating_views = [VIEW.RIGHT]
+	# if level < 3:
+	# 	for i in range(level):
+	# 		cheating_views.append(rng.randi_range(1, len(VIEW)-1))
+	# else:
+	# 	for i in range(3):
+	# 		cheating_views.append(rng.randi_range(1, len(VIEW)-1))
 	print(cheating_views)
 
 func _ready() -> void:
