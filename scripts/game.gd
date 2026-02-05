@@ -10,6 +10,8 @@ extends Node2D
 var views: Array[Node2D]
 var cheating_views: Array[VIEW]
 var level: int = 1
+var copied_count = 0
+var pasted_count = 0
 
 enum VIEW {
 	DOWN,

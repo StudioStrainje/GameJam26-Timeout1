@@ -5,7 +5,7 @@ extends Node2D
 @onready var cheat: Node2D = $Cheat
 @onready var progress_bar: TextureProgressBar = $ProgressBar
 
-@export var points_per_second: float = 10.0
+var points_per_second: float = 10.0
 
 var this_view
 

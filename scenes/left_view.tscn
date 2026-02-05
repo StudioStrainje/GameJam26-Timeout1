@@ -18,6 +18,21 @@ position = Vector2(0, 11.000001)
 scale = Vector2(2.04, 2.452381)
 texture = ExtResource("3_b7ana")
 
+[node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=792662713]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -232.0
+offset_right = 212.0
+offset_bottom = 234.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+texture_progress = ExtResource("4_1ipkh")
+
 [node name="Label" type="Label" parent="." unique_id=1497939238]
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,18 +47,3 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "LEFT"
 vertical_alignment = 1
-
-[node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=792662713]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1136.0
-offset_top = -1059.5
-offset_right = 1136.0
-offset_bottom = 1059.5
-grow_horizontal = 2
-grow_vertical = 2
-value = 100.0
-texture_progress = ExtResource("4_1ipkh")
