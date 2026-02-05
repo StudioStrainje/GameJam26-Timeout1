@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cn8j6yedpufek"]
+
+[ext_resource type="Script" uid="uid://qc7g0ia8n1rr" path="res://scripts/credits.gd" id="1_i2gav"]
+[ext_resource type="Texture2D" uid="uid://cnxt73c1i8l3n" path="res://assets/bringus.png" id="2_5tddo"]
+
+[node name="Control" type="Control" unique_id=1672299568]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i2gav")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1375690296]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1528751656]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -175.0
+offset_right = 225.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer" unique_id=912105910]
+position = Vector2(-175, -87)
+scale = Vector2(1.6104416, 1.5088967)
+texture = ExtResource("2_5tddo")
+centered = false
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=45002604]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -280.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer2" unique_id=908297933]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_back_pressed"]
