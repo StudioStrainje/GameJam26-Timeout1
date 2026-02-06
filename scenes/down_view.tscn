@@ -1,17 +1,15 @@
 [gd_scene format=3 uid="uid://c14743fdxuap7"]
 
 [ext_resource type="Script" uid="uid://cpf8411lhe17i" path="res://scripts/down_view.gd" id="1_hs0vq"]
-[ext_resource type="Texture2D" uid="uid://6qbcguri6mgv" path="res://assets/ltt.jpg" id="3_sa672"]
+[ext_resource type="Texture2D" uid="uid://cnmj3p6d1vy2f" path="res://assets/down_view.png" id="2_hs0vq"]
 [ext_resource type="Texture2D" uid="uid://d3n32v1sgy7vs" path="res://assets/gaben.jpg" id="4_2bmjf"]
 
 [node name="DownView" type="Node2D" unique_id=858498838]
 script = ExtResource("1_hs0vq")
 
-[node name="Clean" type="Sprite2D" parent="." unique_id=543244735]
-visible = false
-position = Vector2(0, 11.000001)
-scale = Vector2(2.04, 2.452381)
-texture = ExtResource("3_sa672")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=900676190]
+texture = ExtResource("2_hs0vq")
+centered = false
 
 [node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=266994449]
 anchors_preset = 8
@@ -26,23 +24,7 @@ offset_bottom = 141.0
 grow_horizontal = 2
 grow_vertical = 2
 step = 0.0
-value = 100.0
 texture_progress = ExtResource("4_2bmjf")
-
-[node name="Label" type="Label" parent="." unique_id=1497939238]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -26.5
-offset_top = -11.5
-offset_right = 26.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "DOWN"
-vertical_alignment = 1
 
 [node name="Status" type="Label" parent="." unique_id=668992194]
 offset_left = 41.0

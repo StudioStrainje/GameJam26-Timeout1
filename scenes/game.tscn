@@ -16,9 +16,11 @@ script = ExtResource("1_yqjtg")
 
 [node name="ForwardView" parent="." unique_id=858498838 instance=ExtResource("1_uwrxv")]
 unique_name_in_owner = true
+position = Vector2(-960, -540)
 
 [node name="LeftView" parent="." unique_id=1327673216 instance=ExtResource("3_p57ef")]
 unique_name_in_owner = true
+position = Vector2(-960, -540)
 
 [node name="RightView" parent="." unique_id=464233084 instance=ExtResource("4_u5sy4")]
 unique_name_in_owner = true
@@ -28,6 +30,7 @@ unique_name_in_owner = true
 
 [node name="DownView" parent="." unique_id=1131090437 instance=ExtResource("6_0tnpc")]
 unique_name_in_owner = true
+position = Vector2(-960, -540)
 
 [node name="Label" type="Label" parent="." unique_id=730867815]
 unique_name_in_owner = true

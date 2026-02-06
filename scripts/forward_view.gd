@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var game: Node2D = $"/root/Game"
-@onready var clean: Node2D = $Clean
 @onready var cheat: Node2D = $Cheat
 @onready var progress_bar: TextureProgressBar = $ProgressBar
 
@@ -20,7 +19,6 @@ func _process(delta: float) -> void:
 	if game.get_current_view() == this_view:
 		if this_view in game.get_cheating_views():
 			cheat.visible = true
-			clean.visible = false
 			
 			if Input.is_action_pressed("copy"):
 				game.copying = this_view
@@ -37,7 +35,6 @@ func _process(delta: float) -> void:
 
 		else:
 			cheat.visible = false
-			clean.visible = true
 	else:
 		if progress_bar.value < 100:
 			progress_bar.value -= dementia_pps * delta
