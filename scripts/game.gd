@@ -7,7 +7,6 @@ signal level_changed
 @onready var up_view: Node2D = %UpView
 @onready var left_view: Node2D = %LeftView
 @onready var right_view: Node2D = %RightView
-@onready var level_label: Label = %Label
 @onready var timer_label: Label = %TimerLabel
 @onready var view_fade: ColorRect = %ViewFade
 
@@ -88,7 +87,6 @@ func level_finished():
 	pasted_count = 0
 	copied_count = 0
 	level_changed.emit()
-	level_label.text = "Level: " + str(level)
 	reset_level_timer()
 	SceneTransition.change_scene_with_fade("res://scenes/level_selector.tscn")
 
@@ -99,7 +97,6 @@ func _ready() -> void:
 		tree.remove_meta("selected_level")
 	views = [down_view, forward_view, up_view, left_view, right_view]
 	generate_new_level()
-	level_label.text = "Level: " + str(level)
 	reset_level_timer()
 	update_timer_label()
 	view_fade.modulate.a = 0.0

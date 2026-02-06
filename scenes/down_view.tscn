@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cpf8411lhe17i" path="res://scripts/down_view.gd" id="1_hs0vq"]
 [ext_resource type="Texture2D" uid="uid://cnmj3p6d1vy2f" path="res://assets/down_view.png" id="2_hs0vq"]
-[ext_resource type="PackedScene" uid="uid://n0w6rbknu86y" path="res://scenes/progress_bar.tscn" id="3_l2lup"]
+[ext_resource type="Texture2D" uid="uid://b4qhg0nfieaxt" path="res://assets/long_hand.png" id="4_2bmjf"]
+[ext_resource type="Texture2D" uid="uid://dbj0a2vfraslv" path="res://assets/test_text.png" id="5_sa672"]
 
 [node name="DownView" type="Node2D" unique_id=858498838]
 script = ExtResource("1_hs0vq")
@@ -11,11 +12,13 @@ script = ExtResource("1_hs0vq")
 texture = ExtResource("2_hs0vq")
 centered = false
 
-[node name="ProgressBar" parent="." unique_id=266994449 instance=ExtResource("3_l2lup")]
-position = Vector2(1114, -85)
+[node name="Test" type="Sprite2D" parent="." unique_id=2109216177]
+position = Vector2(566, 174)
+scale = Vector2(1.369697, 1.369697)
+texture = ExtResource("5_sa672")
+centered = false
 
-[node name="Status" type="Label" parent="." unique_id=668992194]
-offset_left = 41.0
-offset_top = 32.0
-offset_right = 81.0
-offset_bottom = 55.0
+[node name="LongHand" type="Sprite2D" parent="." unique_id=1391170063]
+position = Vector2(-186, 108)
+texture = ExtResource("4_2bmjf")
+centered = false
