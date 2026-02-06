@@ -13,11 +13,13 @@ config_version=5
 config/name="GameJam26-Timeout1"
 run/main_scene="uid://dqlt1qrqa5s1p"
 config/features=PackedStringArray("4.6", "Forward Plus")
+config/icon="uid://qif5fdx7edjy"
 
 [autoload]
 
 MusicManager="*res://scenes/music_manager.tscn"
 SceneTransition="*res://scenes/scene_transition.tscn"
+ButtonClickSound="*res://scripts/button_click_sound.gd"
 
 [display]
 
