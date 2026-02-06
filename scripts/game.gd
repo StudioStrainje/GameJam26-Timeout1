@@ -108,11 +108,6 @@ func _ready() -> void:
 			SceneTransition.change_scene_with_fade("res://scenes/cheat_sheet_tutorial.tscn")
 			return
 	views = [down_view, forward_view, up_view, left_view, right_view]
-	var filtered_views: Array[Node2D] = []
-	for view_node in views:
-		if view_node != null:
-			filtered_views.append(view_node)
-	views = filtered_views
 	generate_new_level()
 	reset_level_timer()
 	update_timer_label()
@@ -145,8 +140,6 @@ func check_views():
 
 func switch_view_visibility():
 	for i in range(len(views)):
-		if views[i] == null:
-			continue
 		views[i].visible = i == current_view
 
 func _fade_view(target_alpha: float, duration: float) -> void:

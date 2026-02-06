@@ -19,38 +19,3 @@ centered = false
 
 [node name="ProgressBar" parent="." unique_id=144085778 instance=ExtResource("4_x1t3m")]
 position = Vector2(1137, -111)
-
-[node name="SpeechBubble" type="CanvasLayer" parent="."]
-layer = 5
-
-[node name="Bubble" type="PanelContainer" parent="SpeechBubble"]
-rotation = -0.02
-offset_left = 560.0
-offset_top = 60.0
-offset_right = 1360.0
-offset_bottom = 150.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_bubble")
-
-[node name="Label" type="Label" parent="SpeechBubble/Bubble"]
-layout_mode = 1
-text = "5 minutes left from the test, don't cheat!"
-horizontal_alignment = 1
-vertical_alignment = 1
-theme_override_font_sizes/font_size = 22
-theme_override_colors/font_color = Color(0.08, 0.08, 0.1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bubble"]
-bg_color = Color(1, 0.98, 0.9, 0.95)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.15, 0.15, 0.2, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_left = 10
-corner_radius_bottom_right = 10
-content_margin_left = 16.0
-content_margin_top = 10.0
-content_margin_right = 16.0
-content_margin_bottom = 10.0

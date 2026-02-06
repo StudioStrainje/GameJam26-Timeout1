@@ -85,7 +85,7 @@ func _process(delta: float) -> void:
 		else:
 			_start_inter_view_delay()
 	_update_visibility_and_position(delta)
-	if game.copying == display_view and game.get_current_view() == display_view and not is_waiting_between_views:
+	if game.copying == display_view and game.get_current_view() == display_view:
 		copying_grace_timer += delta
 		if copying_grace_timer >= copying_grace_seconds:
 			game.trigger_level_failed("teacher")
@@ -95,14 +95,6 @@ func _process(delta: float) -> void:
 func _update_visibility_and_position(delta: float) -> void:
 	var is_current_view = game.get_current_view() == display_view
 	sprite.visible = is_current_view
-	if is_waiting_between_views:
-		inter_view_timer += delta
-		if inter_view_timer >= inter_view_delay:
-			is_waiting_between_views = false
-			display_view = pending_view
-			if game.get_current_view() == display_view:
-				slide_progress = 0.0
-		return
 	if not is_current_view:
 		return
 	if is_waiting_to_depart:
@@ -120,6 +112,14 @@ func _update_visibility_and_position(delta: float) -> void:
 		if slide_progress >= 1.0:
 			is_sliding_out = false
 			_start_inter_view_delay()
+		return
+	if is_waiting_between_views:
+		inter_view_timer += delta
+		if inter_view_timer >= inter_view_delay:
+			is_waiting_between_views = false
+			display_view = pending_view
+			if game.get_current_view() == display_view:
+				slide_progress = 0.0
 		return
 	if slide_progress < 1.0:
 		slide_progress = min(slide_progress + (delta / max(slide_seconds, 0.001)), 1.0)
@@ -162,9 +162,3 @@ func _start_inter_view_delay() -> void:
 func _play_move_sound() -> void:
 	if move_sound_player and move_sound_player.stream:
 		move_sound_player.play()
-
-func get_display_view() -> int:
-	return display_view
-
-func is_active() -> bool:
-	return level == 4 or level == 5
