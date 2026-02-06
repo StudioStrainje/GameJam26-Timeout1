@@ -32,10 +32,10 @@ func get_current_view():
 func get_cheating_views():
 	return cheating_views
 
-func gen_random_not_in_list(min: int, max: int, list: Array) -> int:
-	var x: int = rng.randi_range(min, max)
+func gen_random_not_in_list(min_range: int, max_range: int, list: Array) -> int:
+	var x: int = rng.randi_range(min_range, max_range)
 	while x in list:
-		x = rng.randi_range(min, max)
+		x = rng.randi_range(min_range, max_range)
 	return x
 
 func generate_new_level():
@@ -55,6 +55,7 @@ func level_finished():
 	pasted_count = 0
 	copied_count = 0
 	print("starting level " + str(level))
+	await get_tree().create_timer(.25).timeout
 	level_changed.emit()
 
 func _ready() -> void:

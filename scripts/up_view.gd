@@ -5,7 +5,7 @@ extends Node2D
 @onready var cheat: Node2D = $Cheat
 @onready var progress_bar: TextureProgressBar = $ProgressBar
 
-var pps: float = 17.5
+var pps: float = 17.5 * 3
 var dementia_pps: float = 4.67
 var completed = false
 
