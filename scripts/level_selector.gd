@@ -1,10 +1,16 @@
 extends Control
 
-@onready var btn1: Button = %Level1
-@onready var btn2: Button = %Level2
-@onready var btn3: Button = %Level3
-@onready var btn4: Button = %Level4
-@onready var btn5: Button = %Level5
+@onready var btn1: Button = $"Buttons/Button"
+@onready var btn2: Button = $"Buttons/Button2"
+@onready var btn3: Button = $"Buttons/Button3"
+@onready var btn4: Button = $"Buttons/Button4"
+@onready var btn5: Button = $"Buttons/Button5"
+
+@onready var sprite1: AnimatedSprite2D = $"Buttons/Button/Level1"
+@onready var sprite2: AnimatedSprite2D = $"Buttons/Button2/Level2"
+@onready var sprite3: AnimatedSprite2D = $"Buttons/Button3/Level3"
+@onready var sprite4: AnimatedSprite2D = $"Buttons/Button4/Level4"
+@onready var sprite5: AnimatedSprite2D = $"Buttons/Button5/Level5"
 
 func load_score() -> int:
 	if FileAccess.file_exists("user://score.int"):
@@ -16,9 +22,21 @@ func load_score() -> int:
 
 var high_score: int = load_score()
 var btns: Array = []
+var sprites: Array = []
 
 func _ready() -> void:
 	btns = [btn1, btn2, btn3, btn4, btn5]
+	sprites = [sprite1, sprite2, sprite3, sprite4, sprite5]
+	for i in range(0, len(btns)):
+		btns[i].pressed.connect(func() -> void:
+			_change_level(i + 1)
+		)
+		btns[i].mouse_entered.connect(func() -> void:
+			_set_hover(i, true)
+		)
+		btns[i].mouse_exited.connect(func() -> void:
+			_set_hover(i, false)
+		)
 	_update_buttons()
 
 func _update_buttons() -> void:
@@ -27,9 +45,21 @@ func _update_buttons() -> void:
 		var is_locked := level_number > high_score
 		btns[i].disabled = is_locked
 		if is_locked:
-			btns[i].add_theme_color_override("font_color", Color(0.209, 0.209, 0.209, 1.0))
+			sprites[i].play("locked")
 		else:
-			btns[i].add_theme_color_override("font_color", Color(1.0, 1.0, 1.0, 1.0))
+			sprites[i].play("default")
+
+
+func _set_hover(index: int, is_hovered: bool) -> void:
+	var level_number := index + 1
+	var is_locked := level_number > high_score
+	if is_locked:
+		sprites[index].play("locked")
+		return
+	if is_hovered:
+		sprites[index].play("selected")
+	else:
+		sprites[index].play("default")
 
 
 func _change_level(target_level: int) -> void:
@@ -38,26 +68,6 @@ func _change_level(target_level: int) -> void:
 		return
 	tree.set_meta("selected_level", target_level)
 	SceneTransition.change_scene_with_fade("res://scenes/game.tscn")
-
-
-func _on_level_1_pressed() -> void:
-	_change_level(1)
-
-
-func _on_level_2_pressed() -> void:
-	_change_level(2)
-
-
-func _on_level_3_pressed() -> void:
-	_change_level(3)
-
-
-func _on_level_4_pressed() -> void:
-	_change_level(4)
-
-
-func _on_level_5_pressed() -> void:
-	_change_level(5)
 
 
 func _on_back_pressed() -> void:

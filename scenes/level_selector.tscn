@@ -1,6 +1,112 @@
 [gd_scene format=3 uid="uid://bfucxydpcjlyq"]
 
 [ext_resource type="Script" uid="uid://m7gq0aco5pww" path="res://scripts/level_selector.gd" id="1_gkmvm"]
+[ext_resource type="Texture2D" uid="uid://cpk032uofkwvo" path="res://assets/level_selector.png" id="2_gkmvm"]
+[ext_resource type="Texture2D" uid="uid://w1qjq6yw8xe7" path="res://assets/btn1.png" id="3_btn1"]
+[ext_resource type="Texture2D" uid="uid://e0c8hgt2om7o" path="res://assets/locked1.png" id="4_locked1"]
+[ext_resource type="Texture2D" uid="uid://84qc7l3tdwm7" path="res://assets/selected1.png" id="5_selected1"]
+[ext_resource type="Texture2D" uid="uid://2qgx98o6j0fy" path="res://assets/btn2.png" id="6_btn2"]
+[ext_resource type="Texture2D" uid="uid://2lj7gtdg3ndt" path="res://assets/locked2.png" id="7_locked2"]
+[ext_resource type="Texture2D" uid="uid://fqtn8pghnhv" path="res://assets/selected2.png" id="8_selected2"]
+[ext_resource type="Texture2D" uid="uid://2lr8qngg48h1" path="res://assets/btn3.png" id="9_btn3"]
+[ext_resource type="Texture2D" uid="uid://dip5r2o65hpr8" path="res://assets/selected3.png" id="10_selected3"]
+[ext_resource type="Texture2D" uid="uid://k3gkxd1wervg" path="res://assets/locked3.png" id="11_locked3"]
+[ext_resource type="Texture2D" uid="uid://w0jl0d8w6l8f" path="res://assets/btn4.png" id="12_btn4"]
+[ext_resource type="Texture2D" uid="uid://b67ni4ey30kpf" path="res://assets/selected4.png" id="13_selected4"]
+[ext_resource type="Texture2D" uid="uid://qsfcc0vgvseu" path="res://assets/locked4.png" id="14_locked4"]
+[ext_resource type="Texture2D" uid="uid://4lg6wruy2g3y" path="res://assets/btn5.png" id="15_btn5"]
+[ext_resource type="Texture2D" uid="uid://8yak84p0hww4" path="res://assets/selected5.png" id="16_selected5"]
+[ext_resource type="Texture2D" uid="uid://d08cs0bh3g7c" path="res://assets/locked5.png" id="17_locked5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ylmwf"]
+animations = [{
+"frames": [ExtResource("3_btn1")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [ExtResource("4_locked1")],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [ExtResource("5_selected1")],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qa64r"]
+animations = [{
+"frames": [ExtResource("6_btn2")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [ExtResource("7_locked2")],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [ExtResource("8_selected2")],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w8y68"]
+animations = [{
+"frames": [ExtResource("9_btn3")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [ExtResource("11_locked3")],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [ExtResource("10_selected3")],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqs1x"]
+animations = [{
+"frames": [ExtResource("12_btn4")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [ExtResource("14_locked4")],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [ExtResource("13_selected4")],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_438ai"]
+animations = [{
+"frames": [ExtResource("15_btn5")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [ExtResource("17_locked5")],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [ExtResource("16_selected5")],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}]
 
 [node name="Control" type="Control" unique_id=1672299568]
 layout_mode = 3
@@ -11,62 +117,85 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gkmvm")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1375690296]
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1944184731]
+texture = ExtResource("2_gkmvm")
+centered = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1451204899]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -164.5
-offset_top = -20.0
-offset_right = 164.5
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Level1" type="Button" parent="HBoxContainer" unique_id=399609985]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Level 1"
-
-[node name="Level2" type="Button" parent="HBoxContainer" unique_id=220954246]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Level 2"
-
-[node name="Level3" type="Button" parent="HBoxContainer" unique_id=1473067503]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Level 3"
-
-[node name="Level4" type="Button" parent="HBoxContainer" unique_id=1624776774]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Level 4"
-
-[node name="Level5" type="Button" parent="HBoxContainer" unique_id=1341384938]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Level 5"
-
-[node name="Back" type="Button" parent="." unique_id=1455433480]
+[node name="Back" type="Button" parent="." unique_id=1371172067]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 115.0
-offset_top = 71.0
-offset_right = 176.0
-offset_bottom = 103.0
+offset_left = 102.0
+offset_top = 104.0
+offset_right = 267.0
+offset_bottom = 217.0
+theme_override_colors/font_color = Color(0.64980006, 0.72, 0.62640005, 1)
+theme_override_colors/font_focus_color = Color(0.6509804, 0.72156864, 0.627451, 1)
+theme_override_colors/font_pressed_color = Color(0.44983333, 0.5, 0.43, 1)
+theme_override_colors/font_hover_color = Color(0.6509804, 0.72156864, 0.627451, 1)
+theme_override_font_sizes/font_size = 80
 text = "Back"
+flat = true
 
-[connection signal="pressed" from="HBoxContainer/Level1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="HBoxContainer/Level2" to="." method="_on_level_2_pressed"]
-[connection signal="pressed" from="HBoxContainer/Level3" to="." method="_on_level_3_pressed"]
-[connection signal="pressed" from="HBoxContainer/Level4" to="." method="_on_level_4_pressed"]
-[connection signal="pressed" from="HBoxContainer/Level5" to="." method="_on_level_5_pressed"]
+[node name="Buttons" type="Node2D" parent="." unique_id=505457365]
+
+[node name="Button" type="Button" parent="Buttons" unique_id=1984777683]
+offset_left = 142.0
+offset_top = 631.0
+offset_right = 495.0
+offset_bottom = 972.0
+flat = true
+
+[node name="Level1" type="AnimatedSprite2D" parent="Buttons/Button" unique_id=1514798022]
+position = Vector2(177, 183)
+sprite_frames = SubResource("SpriteFrames_ylmwf")
+animation = &"default"
+
+[node name="Button2" type="Button" parent="Buttons" unique_id=1207818393]
+offset_left = 439.0
+offset_top = 143.0
+offset_right = 844.0
+offset_bottom = 519.0
+flat = true
+
+[node name="Level2" type="AnimatedSprite2D" parent="Buttons/Button2" unique_id=1518178643]
+position = Vector2(207, 203)
+sprite_frames = SubResource("SpriteFrames_qa64r")
+animation = &"default"
+
+[node name="Button3" type="Button" parent="Buttons" unique_id=1518859376]
+offset_left = 787.0
+offset_top = 552.0
+offset_right = 1209.0
+offset_bottom = 957.0
+flat = true
+
+[node name="Level3" type="AnimatedSprite2D" parent="Buttons/Button3" unique_id=2116714863]
+position = Vector2(220, 203)
+sprite_frames = SubResource("SpriteFrames_w8y68")
+animation = &"default"
+
+[node name="Button4" type="Button" parent="Buttons" unique_id=802362437]
+offset_left = 1284.0
+offset_top = 111.0
+offset_right = 1718.0
+offset_bottom = 525.0
+flat = true
+
+[node name="Level4" type="AnimatedSprite2D" parent="Buttons/Button4" unique_id=1583672944]
+position = Vector2(214, 221)
+sprite_frames = SubResource("SpriteFrames_vqs1x")
+animation = &"default"
+
+[node name="Button5" type="Button" parent="Buttons" unique_id=105133130]
+offset_left = 1383.0
+offset_top = 562.0
+offset_right = 1817.0
+offset_bottom = 976.0
+flat = true
+
+[node name="Level5" type="AnimatedSprite2D" parent="Buttons/Button5" unique_id=1360624997]
+position = Vector2(177, 230)
+sprite_frames = SubResource("SpriteFrames_438ai")
+animation = &"default"
+
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
