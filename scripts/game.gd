@@ -1,5 +1,6 @@
 extends Node2D
 
+signal level_changed
 
 @onready var forward_view: Node2D = %ForwardView
 @onready var down_view: Node2D = %DownView
@@ -31,15 +32,30 @@ func get_current_view():
 func get_cheating_views():
 	return cheating_views
 
+func gen_random_not_in_list(min: int, max: int, list: Array) -> int:
+	var x: int = rng.randi_range(min, max)
+	while x in list:
+		x = rng.randi_range(min, max)
+	return x
+
 func generate_new_level():
-	cheating_views = [VIEW.RIGHT]
-	# if level < 3:
-	# 	for i in range(level):
-	# 		cheating_views.append(rng.randi_range(1, len(VIEW)-1))
-	# else:
-	# 	for i in range(3):
-	# 		cheating_views.append(rng.randi_range(1, len(VIEW)-1))
+	cheating_views = []
+	if level < 3:
+		for i in range(level):
+			cheating_views.append(gen_random_not_in_list(1, len(VIEW)-1, cheating_views))
+	else:
+		for i in range(3):
+			cheating_views.append(gen_random_not_in_list(1, len(VIEW)-1, cheating_views))
 	print(cheating_views)
+
+func level_finished():
+	print("level " + str(level) + " finished")
+	level += 1
+	generate_new_level()
+	pasted_count = 0
+	copied_count = 0
+	print("starting level " + str(level))
+	level_changed.emit()
 
 func _ready() -> void:
 	views = [down_view, forward_view, up_view, left_view, right_view]

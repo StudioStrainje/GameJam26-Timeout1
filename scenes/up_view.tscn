@@ -8,17 +8,34 @@
 [node name="UpView" type="Node2D" unique_id=858498838]
 script = ExtResource("1_rnnvu")
 
-[node name="Cheat" type="Sprite2D" parent="." unique_id=1232876351]
+[node name="Cheat" type="Sprite2D" parent="." unique_id=253889069]
 visible = false
 texture = ExtResource("2_bs3o0")
 
-[node name="Clean" type="Sprite2D" parent="." unique_id=543244735]
+[node name="Clean" type="Sprite2D" parent="." unique_id=1834126941]
 visible = false
 position = Vector2(0, 11.000001)
 scale = Vector2(2.04, 2.452381)
 texture = ExtResource("3_nvj5h")
 
-[node name="Label" type="Label" parent="." unique_id=1497939238]
+[node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=870487990]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = -240.0
+offset_right = 262.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+step = 0.0
+value = 100.0
+texture_progress = ExtResource("4_bs3o0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=221636603]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -32,19 +49,4 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "UP"
 vertical_alignment = 1
-
-[node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=70582176]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -241.0
-offset_top = -237.0
-offset_right = 259.0
-offset_bottom = 229.0
-grow_horizontal = 2
-grow_vertical = 2
-step = 0.0
-value = 100.0
-texture_progress = ExtResource("4_bs3o0")
+metadata/_edit_use_anchors_ = true

@@ -5,7 +5,9 @@ extends Node2D
 @onready var cheat: Node2D = $Cheat
 @onready var progress_bar: TextureProgressBar = $ProgressBar
 
-var points_per_second: float = 10.0
+var pps: float = 17.5
+var dementia_pps: float = 4.67
+var completed = false
 
 var this_view
 
@@ -20,12 +22,24 @@ func _process(delta: float) -> void:
 			cheat.visible = true
 			clean.visible = false
 			
-			if Input.is_action_pressed("interact"):
-				progress_bar.value = min(progress_bar.value + points_per_second * delta, 100.0)
-				print(progress_bar.value)
+			if Input.is_action_pressed("copy"):
+				progress_bar.value += pps * delta
 			else:
-				progress_bar.value = 0.0
+				if progress_bar.value < 100:
+					progress_bar.value -= dementia_pps * delta
+				if progress_bar.value <= 0:
+					completed = false
+			if progress_bar.value >= 100 and not completed:
+				game.copied_count += 1
+				completed = true
+
 		else:
 			cheat.visible = false
 			clean.visible = true
-			progress_bar.value = 0.0
+	else:
+		if progress_bar.value < 100:
+			progress_bar.value -= dementia_pps * delta
+
+
+func _on_game_level_changed() -> void:
+	progress_bar.value = 0

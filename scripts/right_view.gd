@@ -37,3 +37,7 @@ func _process(delta: float) -> void:
 	else:
 		if progress_bar.value < 100:
 			progress_bar.value -= dementia_pps * delta
+
+
+func _on_game_level_changed() -> void:
+	progress_bar.value = 0
