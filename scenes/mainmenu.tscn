@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dqlt1qrqa5s1p"]
 
 [ext_resource type="Script" uid="uid://bsc250d84vuvr" path="res://scripts/mainmenu.gd" id="1_5mbse"]
+[ext_resource type="Texture2D" uid="uid://d3bl8gbbvc6p2" path="res://assets/mainmenu_bg.png" id="2_natt5"]
+[ext_resource type="Texture2D" uid="uid://bsv11aed6d043" path="res://assets/hand.png" id="3_r3g3c"]
 
-[node name="Control" type="Control" unique_id=1672299568]
+[node name="Control2" type="Control" unique_id=1672299568]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,10 +13,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5mbse")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1375690296]
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+[node name="Background" type="Sprite2D" parent="." unique_id=23077566]
+texture = ExtResource("2_natt5")
+centered = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1528751656]
 layout_mode = 1
@@ -23,28 +24,58 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -82.5
-offset_right = 82.5
-offset_bottom = 136.0
+offset_left = -228.0
+offset_top = -191.0
+offset_right = 228.0
+offset_bottom = 393.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Start" type="Button" parent="VBoxContainer" unique_id=399609985]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.64705884, 0.7176471, 0.6156863, 1)
+theme_override_colors/font_focus_color = Color(0.64705884, 0.7176471, 0.6156863, 1)
+theme_override_colors/font_pressed_color = Color(0.44983333, 0.5, 0.43, 1)
+theme_override_colors/font_hover_color = Color(0.64705884, 0.7176471, 0.6156863, 1)
+theme_override_font_sizes/font_size = 100
 text = "Start"
+flat = true
 
 [node name="Controls" type="Button" parent="VBoxContainer" unique_id=2023414445]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.64705884, 0.7176471, 0.6156863, 1)
+theme_override_colors/font_focus_color = Color(0.64705884, 0.7176471, 0.6156863, 1)
+theme_override_colors/font_pressed_color = Color(0.44983333, 0.5, 0.43, 1)
+theme_override_colors/font_hover_color = Color(0.64705884, 0.7176471, 0.6156863, 1)
+theme_override_font_sizes/font_size = 100
 text = "Controls"
+flat = true
 
 [node name="Credits" type="Button" parent="VBoxContainer" unique_id=240753757]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.64705884, 0.7176471, 0.6156863, 1)
+theme_override_colors/font_focus_color = Color(0.64705884, 0.7176471, 0.6156863, 1)
+theme_override_colors/font_pressed_color = Color(0.44983333, 0.5, 0.43, 1)
+theme_override_colors/font_hover_color = Color(0.64705884, 0.7176471, 0.6156863, 1)
+theme_override_font_sizes/font_size = 100
 text = "Credits"
+flat = true
 
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=1243755734]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.64705884, 0.7176471, 0.6156863, 1)
+theme_override_colors/font_focus_color = Color(0.64705884, 0.7176471, 0.6156863, 1)
+theme_override_colors/font_pressed_color = Color(0.44983333, 0.5, 0.43, 1)
+theme_override_colors/font_hover_color = Color(0.64705884, 0.7176471, 0.6156863, 1)
+theme_override_font_sizes/font_size = 100
 text = "Quit"
+flat = true
+
+[node name="Hand" type="Sprite2D" parent="." unique_id=159803426]
+position = Vector2(1378, 1174)
+texture = ExtResource("3_r3g3c")
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]

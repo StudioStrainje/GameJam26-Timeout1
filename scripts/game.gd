@@ -8,12 +8,15 @@ signal level_changed
 @onready var left_view: Node2D = %LeftView
 @onready var right_view: Node2D = %RightView
 @onready var level_label: Label = %Label
+@onready var timer_label: Label = %TimerLabel
 
 var views: Array[Node2D]
 var cheating_views: Array[VIEW]
 var level: int = 1
 var copied_count = 0
 var pasted_count = 0
+var level_time_left := 60.0
+var is_level_failed := false
 
 enum VIEW {
 	DOWN,
@@ -29,6 +32,9 @@ var rng = RandomNumberGenerator.new()
 
 func get_current_view():
 	return current_view
+
+func get_level() -> int:
+	return level
 
 func get_cheating_views():
 	return cheating_views
@@ -70,6 +76,7 @@ func level_finished():
 	copied_count = 0
 	level_changed.emit()
 	level_label.text = "Level: " + str(level)
+	reset_level_timer()
 	SceneTransition.change_scene_with_fade("res://scenes/level_selector.tscn")
 
 func _ready() -> void:
@@ -80,6 +87,8 @@ func _ready() -> void:
 	views = [down_view, forward_view, up_view, left_view, right_view]
 	generate_new_level()
 	level_label.text = "Level: " + str(level)
+	reset_level_timer()
+	update_timer_label()
 
 func check_views():
 	if Input.is_action_just_pressed("up"):
@@ -116,6 +125,7 @@ func print_view():
 func _process(_delta: float) -> void:
 	check_views()
 	switch_view_visibility()
+	update_level_timer(_delta)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
@@ -123,6 +133,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		toggle_escape_menu()
 
 func toggle_escape_menu():
+	if is_level_failed:
+		return
 	var existing_menu = get_tree().root.get_node_or_null("EscapeMenu")
 	if existing_menu:
 		existing_menu.close_menu()
@@ -132,3 +144,31 @@ func toggle_escape_menu():
 		escape_menu.process_mode = Node.PROCESS_MODE_ALWAYS
 		get_tree().root.add_child(escape_menu)
 		get_tree().paused = true
+
+func reset_level_timer() -> void:
+	level_time_left = 60.0
+	update_timer_label()
+
+func update_level_timer(delta: float) -> void:
+	if is_level_failed:
+		return
+	level_time_left = max(level_time_left - delta, 0.0)
+	update_timer_label()
+	if level_time_left <= 0.0:
+		trigger_level_failed()
+
+func update_timer_label() -> void:
+	var total_seconds := int(ceil(level_time_left))
+	var minutes := total_seconds / 60
+	var seconds := total_seconds % 60
+	timer_label.text = "%02d:%02d" % [minutes, seconds]
+
+func trigger_level_failed() -> void:
+	if is_level_failed:
+		return
+	is_level_failed = true
+	var failed_menu = load("res://scenes/level_failed.tscn").instantiate()
+	failed_menu.name = "LevelFailed"
+	failed_menu.process_mode = Node.PROCESS_MODE_ALWAYS
+	get_tree().root.add_child(failed_menu)
+	get_tree().paused = true

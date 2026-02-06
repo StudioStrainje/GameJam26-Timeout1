@@ -34,6 +34,19 @@ offset_top = -186.0
 offset_right = 538.0
 offset_bottom = -163.0
 
+[node name="TimerLabel" type="Label" parent="." unique_id=2067034984]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 118.0
+offset_bottom = 40.0
+text = "01:00"
+
 [connection signal="level_changed" from="." to="ForwardView" method="_on_game_level_changed"]
 [connection signal="level_changed" from="." to="LeftView" method="_on_game_level_changed"]
 [connection signal="level_changed" from="." to="RightView" method="_on_game_level_changed"]
