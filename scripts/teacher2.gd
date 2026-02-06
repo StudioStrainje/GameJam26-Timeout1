@@ -75,7 +75,7 @@ func _process(delta: float) -> void:
 	if game.copying == display_view and game.get_current_view() == display_view:
 		copying_grace_timer += delta
 		if copying_grace_timer >= copying_grace_seconds:
-			game.trigger_level_failed()
+			game.trigger_level_failed("teacher")
 	else:
 		copying_grace_timer = 0.0
 

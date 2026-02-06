@@ -15,9 +15,10 @@ var cheating_views: Array[VIEW]
 var level: int = 1
 var copied_count = 0
 var pasted_count = 0
-var level_time_left := 10.0
+var level_time_left := 60.0
 var level_failed = false
 var copying := -1
+var level_time = 60.0
 
 enum VIEW {
 	DOWN,
@@ -152,15 +153,14 @@ func toggle_escape_menu():
 		get_tree().paused = true
 
 func reset_level_timer() -> void:
-	level_time_left = 10.0
+	level_time_left = level_time
 	update_timer_label()
 
 func update_level_timer(delta: float) -> void:
 	level_time_left = max(level_time_left - delta, 0.0)
 	update_timer_label()
-	if level_time_left <= 0.0 and not level_failed:
-		level_failed = true
-		trigger_level_failed()
+	if level_time_left <= 0.0:
+		trigger_level_failed("time")
 
 func update_timer_label() -> void:
 	var total_seconds := int(ceil(level_time_left))
@@ -168,5 +168,8 @@ func update_timer_label() -> void:
 	var seconds := total_seconds % 60
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
 
-func trigger_level_failed() -> void:
-	SceneTransition.change_scene_with_fade("res://scenes/level_failed.tscn")
+func trigger_level_failed(reason: String) -> void:
+	if not level_failed:
+		level_failed = true
+		get_tree().set_meta("fail_reason", reason)
+		SceneTransition.change_scene_with_fade("res://scenes/level_failed.tscn")

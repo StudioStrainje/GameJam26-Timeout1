@@ -22,7 +22,7 @@ var copying_grace_timer := 0.0
 @export var slide_from_right := true
 @export var idle_jitter := 2.0
 @export var idle_speed := 30.0
-@export var copying_grace_seconds := 0.5
+@export var copying_grace_seconds := 0.0
 
 func _ready() -> void:
 	if get_window() != null:
@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 	if game.copying == display_view and game.get_current_view() == display_view:
 		copying_grace_timer += delta
 		if copying_grace_timer >= copying_grace_seconds:
-			game.trigger_level_failed()
+			game.trigger_level_failed("teacher")
 	else:
 		copying_grace_timer = 0.0
 

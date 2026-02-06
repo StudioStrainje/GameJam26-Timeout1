@@ -1,22 +1,7 @@
 [gd_scene format=3 uid="uid://7mrdsdqjuwv"]
 
 [ext_resource type="Texture2D" uid="uid://c3qug82l8ienw" path="res://assets/failscreen.png" id="2_jofym"]
-
-[sub_resource type="GDScript" id="GDScript_tva4u"]
-script/source = "extends Control
-
-func _on_restart_pressed() -> void:
-	var game: Node = get_tree().root.get_node_or_null(\"Game\")
-	if game and game.has_method(\"get_level\"):
-		get_tree().set_meta(\"selected_level\", game.get_level())
-	SceneTransition.change_scene_with_fade(\"res://scenes/game.tscn\")
-
-func _on_levels_pressed() -> void:
-	SceneTransition.change_scene_with_fade(\"res://scenes/level_selector.tscn\")
-
-func _on_main_menu_pressed() -> void:
-	SceneTransition.change_scene_with_fade(\"res://scenes/mainmenu.tscn\")
-"
+[ext_resource type="Script" uid="uid://cckjd0go1qwna" path="res://scripts/level_failed.gd" id="3_script"]
 
 [node name="Control" type="Control" unique_id=1857348006]
 layout_mode = 3
@@ -26,21 +11,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = SubResource("GDScript_tva4u")
+script = ExtResource("3_script")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1031569273]
 texture = ExtResource("2_jofym")
 centered = false
 
 [node name="Label" type="Label" parent="." unique_id=1673646265]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 592.0
+offset_left = 45.0
 offset_top = 62.0
-offset_right = 1441.0
+offset_right = 1896.0
 offset_bottom = 157.0
 theme_override_colors/font_color = Color(0.64705884, 0.7176471, 0.6156863, 1)
 theme_override_font_sizes/font_size = 90
 text = "You failed your exams!"
+horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=162738672]
 layout_mode = 1

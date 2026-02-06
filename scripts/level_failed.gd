@@ -1,5 +1,14 @@
 extends Control
 
+@onready var label: Label = %Label
+
+func _ready() -> void:
+	var reason = get_tree().get_meta("fail_reason", "teacher")
+	if reason == "time":
+		label.text = "Time's up! You failed your exams!"
+	else:
+		label.text = "You were caught by the teacher!"
+
 func _on_restart_pressed() -> void:
 	var game: Node = get_tree().root.get_node_or_null("Game")
 	if game and game.has_method("get_level"):
