@@ -9,6 +9,12 @@
 [ext_resource type="FontFile" uid="uid://cvls6kpiwrp4p" path="res://assets/clockfont/DISPLAY FREE TFB.ttf" id="7_0tnpc"]
 [ext_resource type="Script" uid="uid://g4g6kfm4sy7m" path="res://scripts/teacher1.gd" id="7_u5sy4"]
 [ext_resource type="Script" uid="uid://c6ahjsinqn470" path="res://scripts/teacher2.gd" id="8_gee14"]
+[ext_resource type="AudioStream" uid="uid://8j3adjmycn3q" path="res://assets/neon.ogg" id="9_neon"]
+[ext_resource type="AudioStream" uid="uid://dqtv0y68norie" path="res://assets/char1.ogg" id="10_char1"]
+[ext_resource type="AudioStream" uid="uid://d1t6h2p8m4w9f" path="res://assets/char2.ogg" id="11_char2"]
+[ext_resource type="AudioStream" uid="uid://n5v2m0k8w3t7q" path="res://assets/char3.ogg" id="12_char3"]
+[ext_resource type="AudioStream" uid="uid://q7x3p1k9m4v2e" path="res://assets/char4.ogg" id="13_char4"]
+[ext_resource type="AudioStream" uid="uid://r5n2k8m1p3w7a" path="res://assets/char5.ogg" id="14_char5"]
 
 [node name="Game" type="Node2D" unique_id=1245125645]
 script = ExtResource("1_yqjtg")
@@ -78,8 +84,38 @@ script = ExtResource("8_gee14")
 
 [node name="Sprite2D" type="Sprite2D" parent="Teacher2" unique_id=1332246281]
 
-[connection signal="level_changed" from="." to="ForwardView" method="_on_game_level_changed"]
+[node name="AmbientNeon" type="AudioStreamPlayer" parent="." unique_id=2095585602]
+stream = ExtResource("9_neon")
+volume_db = -25.0
+autoplay = true
+
+[node name="Level1Music" type="AudioStreamPlayer" parent="." unique_id=678423946]
+unique_name_in_owner = true
+stream = ExtResource("10_char1")
+volume_db = -7.0
+
+[node name="Level2Music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_char2")
+volume_db = -7.0
+
+[node name="Level3Music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_char3")
+volume_db = -7.0
+
+[node name="Level4Music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_char4")
+volume_db = -7.0
+
+[node name="Level5Music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("14_char5")
+volume_db = -7.0
+
 [connection signal="level_changed" from="." to="LeftView" method="_on_game_level_changed"]
 [connection signal="level_changed" from="." to="DownView" method="_on_game_level_changed"]
 [connection signal="level_changed" from="." to="UpView" method="_on_game_level_changed"]
 [connection signal="level_changed" from="." to="RightView" method="_on_game_level_changed"]
+[connection signal="level_changed" from="." to="ForwardView" method="_on_game_level_changed"]

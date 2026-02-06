@@ -9,6 +9,11 @@ signal level_changed
 @onready var right_view: Node2D = %RightView
 @onready var timer_label: Label = %TimerLabel
 @onready var view_fade: ColorRect = %ViewFade
+@onready var level1_music: AudioStreamPlayer = %Level1Music
+@onready var level2_music: AudioStreamPlayer = %Level2Music
+@onready var level3_music: AudioStreamPlayer = %Level3Music
+@onready var level4_music: AudioStreamPlayer = %Level4Music
+@onready var level5_music: AudioStreamPlayer = %Level5Music
 
 var views: Array[Node2D]
 var cheating_views: Array[VIEW]
@@ -107,6 +112,11 @@ func _ready() -> void:
 		if level == 1 and not FileAccess.file_exists("user://score.int"):
 			SceneTransition.change_scene_with_fade("res://scenes/cheat_sheet_tutorial.tscn")
 			return
+	level1_music.playing = level == 1
+	level2_music.playing = level == 2
+	level3_music.playing = level == 3
+	level4_music.playing = level == 4
+	level5_music.playing = level == 5
 	views = [down_view, forward_view, up_view, left_view, right_view]
 	generate_new_level()
 	reset_level_timer()

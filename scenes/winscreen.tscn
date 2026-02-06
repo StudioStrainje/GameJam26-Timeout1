@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvb34ii8yj6kt" path="res://scripts/winscreen.gd" id="1_wg0yv"]
 [ext_resource type="Texture2D" uid="uid://cn1sc0micrv6" path="res://assets/winscreen.png" id="2_unfcc"]
+[ext_resource type="AudioStream" uid="uid://bgb5ltu4r21ns" path="res://assets/win.ogg" id="3_win"]
 
 [node name="Control2" type="Control" unique_id=1672299568]
 layout_mode = 3
@@ -39,5 +40,9 @@ offset_bottom = 156.0
 theme_override_colors/font_color = Color(0.1775, 0.2, 0.17, 1)
 theme_override_font_sizes/font_size = 80
 text = "You passed all exams!"
+
+[node name="WinMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_win")
+autoplay = true
 
 [connection signal="pressed" from="BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]
