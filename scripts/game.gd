@@ -47,6 +47,14 @@ func generate_new_level():
 	else:
 		for i in range(3):
 			cheating_views.append(gen_random_not_in_list(1, len(VIEW)-1, cheating_views))
+			
+func load_score() -> int:
+	if FileAccess.file_exists("user://score.int"):
+		var file = FileAccess.open("user://score.int", FileAccess.READ)
+		var value = file.get_var()
+		file.close()
+		return value
+	return 1
 
 func save_score(value: int):
 	var file = FileAccess.open("user://score.int", FileAccess.WRITE)
@@ -55,12 +63,14 @@ func save_score(value: int):
 
 func level_finished():
 	level += 1
-	save_score(level)
+	if level > load_score():
+		save_score(level)
 	generate_new_level()
 	pasted_count = 0
 	copied_count = 0
 	level_changed.emit()
 	level_label.text = "Level: " + str(level)
+	get_tree().change_scene_to_file("res://scenes/level_selector.tscn")
 
 func _ready() -> void:
 	var tree := get_tree()
