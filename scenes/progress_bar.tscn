@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://n0w6rbknu86y"]
+
+[ext_resource type="Texture2D" uid="uid://d32ayaodjy0as" path="res://assets/progress_empty.png" id="1_vt3ux"]
+
+[sub_resource type="Gradient" id="Gradient_bs3o0"]
+colors = PackedColorArray(0.39607844, 0.62352943, 0.4509804, 1, 0.3015, 0.67, 0.36291662, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8un81"]
+gradient = SubResource("Gradient_bs3o0")
+width = 1193
+height = 100
+
+[node name="ProgressBar" type="Node2D" unique_id=854249943]
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=366071116]
+position = Vector2(436, 254.00002)
+scale = Vector2(0.45092592, 0.45092592)
+texture = ExtResource("1_vt3ux")
+
+[node name="ProgressBar" type="TextureProgressBar" parent="Sprite2D2" unique_id=1220184860]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.9441521
+anchor_bottom = 0.5
+offset_left = -1516.6324
+offset_top = -597.6592
+offset_right = -699.63257
+offset_bottom = -131.65915
+grow_horizontal = 2
+grow_vertical = 2
+step = 0.0
+texture_progress = SubResource("GradientTexture2D_8un81")
+metadata/_edit_use_anchors_ = true

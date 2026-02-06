@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var game: Node2D = $"/root/Game"
-@onready var progress_bar: TextureProgressBar = $ProgressBar
+@onready var progress_bar: TextureProgressBar = $ProgressBar/Sprite2D2/ProgressBar
 @onready var status: Label = $Status
 
 var pps: float = 17.5 * 3
