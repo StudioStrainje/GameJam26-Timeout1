@@ -15,6 +15,7 @@ var cheating_views: Array[VIEW]
 var level: int = 1
 var copied_count = 0
 var pasted_count = 0
+var copying := -1
 var level_time_left := 60.0
 var is_level_failed := false
 
