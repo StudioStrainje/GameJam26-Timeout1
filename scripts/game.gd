@@ -116,3 +116,19 @@ func print_view():
 func _process(_delta: float) -> void:
 	check_views()
 	switch_view_visibility()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("escape"):
+		get_viewport().set_input_as_handled()
+		toggle_escape_menu()
+
+func toggle_escape_menu():
+	var existing_menu = get_tree().root.get_node_or_null("EscapeMenu")
+	if existing_menu:
+		existing_menu.close_menu()
+	else:
+		var escape_menu = load("res://scenes/escape.tscn").instantiate()
+		escape_menu.name = "EscapeMenu"
+		escape_menu.process_mode = Node.PROCESS_MODE_ALWAYS
+		get_tree().root.add_child(escape_menu)
+		get_tree().paused = true

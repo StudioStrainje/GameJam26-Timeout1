@@ -58,3 +58,8 @@ func _on_level_4_pressed() -> void:
 
 func _on_level_5_pressed() -> void:
 	_change_level(5)
+
+
+func _on_back_pressed() -> void:
+	SceneTransition.change_scene_with_fade("res://scenes/mainmenu.tscn")
+
