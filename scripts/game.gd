@@ -201,4 +201,5 @@ func trigger_level_failed(reason: String) -> void:
 	if not level_failed:
 		level_failed = true
 		get_tree().set_meta("fail_reason", reason)
+		get_tree().set_meta("selected_level", level)
 		SceneTransition.change_scene_with_fade("res://scenes/level_failed.tscn")

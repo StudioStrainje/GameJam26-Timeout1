@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dw3xc2ve2vprr"]
+[gd_scene format=3 uid="uid://b4li0vg4wfmtw"]
 
 [ext_resource type="Script" uid="uid://chmyxt8678aeg" path="res://scripts/escape.gd" id="1_fu77f"]
 [ext_resource type="Texture2D" uid="uid://0n8lbbq7t52g" path="res://assets/pausemenu.png" id="2_pausemenu"]
