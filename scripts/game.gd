@@ -9,6 +9,7 @@ signal level_changed
 @onready var right_view: Node2D = %RightView
 @onready var level_label: Label = %Label
 @onready var timer_label: Label = %TimerLabel
+@onready var view_fade: ColorRect = %ViewFade
 
 var views: Array[Node2D]
 var cheating_views: Array[VIEW]
@@ -29,6 +30,9 @@ enum VIEW {
 }
 
 var current_view: VIEW = VIEW.FORWARD
+var view_transition_duration := 0.8
+var view_transition_tween: Tween
+var is_view_transitioning := false
 
 var rng = RandomNumberGenerator.new()
 
@@ -98,30 +102,51 @@ func _ready() -> void:
 	level_label.text = "Level: " + str(level)
 	reset_level_timer()
 	update_timer_label()
+	view_fade.modulate.a = 0.0
 
 func check_views():
+	if is_view_transitioning:
+		return
+	var target_view := current_view
 	if Input.is_action_just_pressed("up"):
 		match current_view:
-			VIEW.FORWARD: current_view = VIEW.UP
-			VIEW.DOWN: current_view = VIEW.FORWARD
-			_: current_view = VIEW.UP
+			VIEW.FORWARD: target_view = VIEW.UP
+			VIEW.DOWN: target_view = VIEW.FORWARD
+			_: target_view = VIEW.UP
 	if Input.is_action_just_pressed("down"):
 		match current_view:
-			VIEW.UP: current_view = VIEW.FORWARD
-			VIEW.FORWARD: current_view = VIEW.DOWN
-			_: current_view = VIEW.DOWN
+			VIEW.UP: target_view = VIEW.FORWARD
+			VIEW.FORWARD: target_view = VIEW.DOWN
+			_: target_view = VIEW.DOWN
 	if Input.is_action_just_pressed("left"):
 		match current_view:
-			VIEW.RIGHT: current_view = VIEW.FORWARD
-			_: current_view = VIEW.LEFT
+			VIEW.RIGHT: target_view = VIEW.FORWARD
+			_: target_view = VIEW.LEFT
 	if Input.is_action_just_pressed("right"):
 		match current_view:
-			VIEW.LEFT: current_view = VIEW.FORWARD
-			_: current_view = VIEW.RIGHT
+			VIEW.LEFT: target_view = VIEW.FORWARD
+			_: target_view = VIEW.RIGHT
+	if target_view != current_view:
+		_transition_to_view(target_view)
 
 func switch_view_visibility():
 	for i in range(len(views)):
 		views[i].visible = i == current_view
+
+func _fade_view(target_alpha: float, duration: float) -> void:
+	if view_transition_tween:
+		view_transition_tween.kill()
+	view_transition_tween = create_tween()
+	view_transition_tween.tween_property(view_fade, "modulate:a", target_alpha, duration)
+	await view_transition_tween.finished
+
+func _transition_to_view(target_view: VIEW) -> void:
+	is_view_transitioning = true
+	await _fade_view(1.0, view_transition_duration * 0.5)
+	current_view = target_view
+	switch_view_visibility()
+	await _fade_view(0.0, view_transition_duration * 0.5)
+	is_view_transitioning = false
 
 func print_view():
 	match current_view:
