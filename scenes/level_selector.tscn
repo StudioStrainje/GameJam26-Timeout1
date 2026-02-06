@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bfucxydpcjlyq"]
+
+[ext_resource type="Script" uid="uid://m7gq0aco5pww" path="res://scripts/level_selector.gd" id="1_gkmvm"]
+[ext_resource type="FontFile" uid="uid://lsce5bjfsakh" path="res://assets/font/FugazOne-Regular.ttf" id="2_tr5s6"]
+
+[node name="Control" type="Control" unique_id=1672299568]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gkmvm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1375690296]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1451204899]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.5
+offset_top = -20.0
+offset_right = 164.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Level1" type="Button" parent="HBoxContainer" unique_id=399609985]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tr5s6")
+text = "Level 1"
+
+[node name="Level2" type="Button" parent="HBoxContainer" unique_id=220954246]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tr5s6")
+text = "Level 2"
+
+[node name="Level3" type="Button" parent="HBoxContainer" unique_id=1473067503]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tr5s6")
+text = "Level 3"
+
+[node name="Level4" type="Button" parent="HBoxContainer" unique_id=1624776774]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tr5s6")
+text = "Level 4"
+
+[node name="Level5" type="Button" parent="HBoxContainer" unique_id=1341384938]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tr5s6")
+text = "Level 5"
+
+[connection signal="pressed" from="HBoxContainer/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/Level4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="HBoxContainer/Level5" to="." method="_on_level_5_pressed"]

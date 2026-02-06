@@ -48,9 +48,14 @@ func generate_new_level():
 		for i in range(3):
 			cheating_views.append(gen_random_not_in_list(1, len(VIEW)-1, cheating_views))
 
+func save_score(value: int):
+	var file = FileAccess.open("user://score.int", FileAccess.WRITE)
+	file.store_var(value)
+	file.close()
 
 func level_finished():
 	level += 1
+	save_score(level)
 	generate_new_level()
 	pasted_count = 0
 	copied_count = 0
@@ -58,6 +63,10 @@ func level_finished():
 	level_label.text = "Level: " + str(level)
 
 func _ready() -> void:
+	var tree := get_tree()
+	if tree and tree.has_meta("selected_level"):
+		level = int(tree.get_meta("selected_level"))
+		tree.remove_meta("selected_level")
 	views = [down_view, forward_view, up_view, left_view, right_view]
 	generate_new_level()
 	level_label.text = "Level: " + str(level)
