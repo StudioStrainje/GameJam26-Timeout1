@@ -162,3 +162,9 @@ func _start_inter_view_delay() -> void:
 func _play_move_sound() -> void:
 	if move_sound_player and move_sound_player.stream:
 		move_sound_player.play()
+
+func get_display_view() -> int:
+	return display_view
+
+func is_active() -> bool:
+	return level == 4 or level == 5

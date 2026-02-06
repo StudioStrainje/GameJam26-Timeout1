@@ -134,3 +134,6 @@ func _start_inter_view_delay() -> void:
 func _play_move_sound() -> void:
 	if move_sound_teacher and move_sound_teacher.stream:
 		move_sound_teacher.play()
+
+func get_display_view() -> int:
+	return display_view

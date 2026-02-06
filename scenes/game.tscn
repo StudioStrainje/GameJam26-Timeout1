@@ -15,10 +15,6 @@ script = ExtResource("1_yqjtg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2004369781]
 
-[node name="ForwardView" parent="." unique_id=858498838 instance=ExtResource("1_uwrxv")]
-unique_name_in_owner = true
-position = Vector2(-960, -540)
-
 [node name="LeftView" parent="." unique_id=1327673216 instance=ExtResource("3_p57ef")]
 unique_name_in_owner = true
 position = Vector2(-960, -540)
@@ -32,6 +28,10 @@ unique_name_in_owner = true
 position = Vector2(-960, -540)
 
 [node name="RightView" parent="." unique_id=464233084 instance=ExtResource("4_u5sy4")]
+unique_name_in_owner = true
+position = Vector2(-960, -540)
+
+[node name="ForwardView" parent="." unique_id=858498838 instance=ExtResource("1_uwrxv")]
 unique_name_in_owner = true
 position = Vector2(-960, -540)
 
@@ -80,6 +80,6 @@ script = ExtResource("8_gee14")
 
 [connection signal="level_changed" from="." to="ForwardView" method="_on_game_level_changed"]
 [connection signal="level_changed" from="." to="LeftView" method="_on_game_level_changed"]
-[connection signal="level_changed" from="." to="RightView" method="_on_game_level_changed"]
 [connection signal="level_changed" from="." to="DownView" method="_on_game_level_changed"]
 [connection signal="level_changed" from="." to="UpView" method="_on_game_level_changed"]
+[connection signal="level_changed" from="." to="RightView" method="_on_game_level_changed"]
