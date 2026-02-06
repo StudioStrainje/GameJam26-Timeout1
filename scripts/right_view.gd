@@ -5,13 +5,14 @@ extends Node2D
 @onready var cheat: Node2D = $Cheat
 @onready var progress_bar: TextureProgressBar = $ProgressBar/Sprite2D2/ProgressBar
 
-var pps: float = 17.5 * 3
+var pps: float = 17.5
 var dementia_pps: float = 4.67
 var completed = false
 
 var this_view
 
 func _ready() -> void:
+	pps = 17.5 * game.get_pipik_multiplier()
 	this_view = game.VIEW.RIGHT
 	progress_bar.value = 0.0
 

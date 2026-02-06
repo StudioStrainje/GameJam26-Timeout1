@@ -44,6 +44,15 @@ func get_level() -> int:
 func get_cheating_views():
 	return cheating_views
 
+func get_pipik_multiplier():
+	match level:
+		1: return 1
+		2: return .9
+		3: return .8
+		4: return .67
+		5: return .5
+	return 1
+
 func gen_random_not_in_list(min_range: int, max_range: int, list: Array) -> int:
 	var x: int = rng.randi_range(min_range, max_range)
 	while x in list:
