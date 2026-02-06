@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://onwrojs8p3u8" path="res://assets/linus-torvalds.jpg" id="2_1ipkh"]
 [ext_resource type="Texture2D" uid="uid://6qbcguri6mgv" path="res://assets/ltt.jpg" id="3_b7ana"]
 [ext_resource type="Texture2D" uid="uid://bqqwte0m16vrh" path="res://assets/rms.jpg" id="4_1ipkh"]
+[ext_resource type="FontFile" uid="uid://lsce5bjfsakh" path="res://assets/font/FugazOne-Regular.ttf" id="5_b7ana"]
 
 [node name="LeftView" type="Node2D" unique_id=858498838]
 script = ExtResource("1_1wm27")
@@ -47,6 +48,7 @@ offset_right = 26.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_b7ana")
 text = "LEFT"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true

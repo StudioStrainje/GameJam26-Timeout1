@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cpf8411lhe17i" path="res://scripts/down_view.gd" id="1_hs0vq"]
 [ext_resource type="Texture2D" uid="uid://6qbcguri6mgv" path="res://assets/ltt.jpg" id="3_sa672"]
 [ext_resource type="Texture2D" uid="uid://d3n32v1sgy7vs" path="res://assets/gaben.jpg" id="4_2bmjf"]
+[ext_resource type="FontFile" uid="uid://lsce5bjfsakh" path="res://assets/font/FugazOne-Regular.ttf" id="4_sa672"]
 
 [node name="DownView" type="Node2D" unique_id=858498838]
 script = ExtResource("1_hs0vq")
@@ -41,6 +42,7 @@ offset_right = 26.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_sa672")
 text = "DOWN"
 vertical_alignment = 1
 
@@ -49,3 +51,4 @@ offset_left = 41.0
 offset_top = 32.0
 offset_right = 81.0
 offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("4_sa672")

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dqlt1qrqa5s1p"]
 
 [ext_resource type="Script" uid="uid://bsc250d84vuvr" path="res://scripts/mainmenu.gd" id="1_5mbse"]
+[ext_resource type="FontFile" uid="uid://lsce5bjfsakh" path="res://assets/font/FugazOne-Regular.ttf" id="2_natt5"]
 
 [node name="Control" type="Control" unique_id=1672299568]
 layout_mode = 3
@@ -32,18 +33,22 @@ alignment = 1
 
 [node name="Start" type="Button" parent="VBoxContainer" unique_id=399609985]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_natt5")
 text = "Start"
 
 [node name="Controls" type="Button" parent="VBoxContainer" unique_id=2023414445]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_natt5")
 text = "Controls"
 
 [node name="Credits" type="Button" parent="VBoxContainer" unique_id=240753757]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_natt5")
 text = "Credits"
 
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=1243755734]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_natt5")
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]

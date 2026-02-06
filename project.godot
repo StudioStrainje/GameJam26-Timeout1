@@ -66,6 +66,10 @@ paste={
 
 3d/physics_engine="Jolt Physics"
 
+[autoload]
+
+MusicManager="*res://scenes/music_manager.tscn"
+
 [rendering]
 
 rendering_device/driver.windows="d3d12"
