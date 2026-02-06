@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ce8ldct2tk38b"]
+
+[ext_resource type="Texture2D" uid="uid://7f4cqnf464cq" path="res://assets/tutorial_cheat.png" id="1_aqryh"]
+[ext_resource type="Script" uid="uid://c8g68k3y52n5a" path="res://scripts/cheat_sheet_tutorial.gd" id="2_3q7he"]
+
+[node name="CheatSheetTutorial" type="Node2D" unique_id=146064005]
+script = ExtResource("2_3q7he")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2061023419]
+texture = ExtResource("1_aqryh")
+centered = false
+
+[node name="Label" type="Label" parent="." unique_id=778478701]
+unique_name_in_owner = true
+offset_left = -65.0
+offset_top = 439.0
+offset_right = 1786.0
+offset_bottom = 652.0
+theme_override_colors/font_color = Color(0.64776003, 0.72, 0.61920005, 1)
+theme_override_font_sizes/font_size = 100
+text = "Copy notes from
+hidden cheat sheets"
+horizontal_alignment = 1

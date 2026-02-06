@@ -104,6 +104,9 @@ func _ready() -> void:
 	if tree and tree.has_meta("selected_level"):
 		level = int(tree.get_meta("selected_level"))
 		tree.remove_meta("selected_level")
+		if level == 1 and not FileAccess.file_exists("user://score.int"):
+			SceneTransition.change_scene_with_fade("res://scenes/cheat_sheet_tutorial.tscn")
+			return
 	views = [down_view, forward_view, up_view, left_view, right_view]
 	generate_new_level()
 	reset_level_timer()

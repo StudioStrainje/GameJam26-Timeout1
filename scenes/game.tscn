@@ -23,14 +23,15 @@ position = Vector2(-960, -540)
 unique_name_in_owner = true
 position = Vector2(-960, -540)
 
-[node name="RightView" parent="." unique_id=464233084 instance=ExtResource("4_u5sy4")]
-unique_name_in_owner = true
-
 [node name="DownView" parent="." unique_id=1131090437 instance=ExtResource("6_0tnpc")]
 unique_name_in_owner = true
 position = Vector2(-960, -540)
 
 [node name="UpView" parent="." unique_id=1779130352 instance=ExtResource("5_gee14")]
+unique_name_in_owner = true
+position = Vector2(-960, -540)
+
+[node name="RightView" parent="." unique_id=464233084 instance=ExtResource("4_u5sy4")]
 unique_name_in_owner = true
 position = Vector2(-960, -540)
 
