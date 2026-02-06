@@ -23,7 +23,11 @@ func _on_tree_changed():
 	_check_scene()
 
 func _check_scene():
-	var current_scene = get_tree().current_scene
+	var tree = get_tree()
+	if not tree:
+		return
+
+	var current_scene = tree.current_scene
 	if current_scene == null:
 		return
 	
