@@ -23,8 +23,10 @@ func _process(delta: float) -> void:
 			clean.visible = false
 			
 			if Input.is_action_pressed("copy"):
+				game.copying = this_view
 				progress_bar.value += pps * delta
 			else:
+				game.copying = -1
 				if progress_bar.value < 100:
 					progress_bar.value -= dementia_pps * delta
 			if progress_bar.value >= 100 and not completed:

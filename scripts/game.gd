@@ -17,6 +17,7 @@ var copied_count = 0
 var pasted_count = 0
 var level_time_left := 10.0
 var level_failed = false
+var copying := -1
 
 enum VIEW {
 	DOWN,

@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ciccd40v1ges3" path="res://scenes/right_view.tscn" id="4_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bhcj6ax13omks" path="res://scenes/up_view.tscn" id="5_gee14"]
 [ext_resource type="PackedScene" uid="uid://c14743fdxuap7" path="res://scenes/down_view.tscn" id="6_0tnpc"]
+[ext_resource type="Script" uid="uid://g4g6kfm4sy7m" path="res://scripts/teacher1.gd" id="7_u5sy4"]
+[ext_resource type="Script" uid="uid://c6ahjsinqn470" path="res://scripts/teacher2.gd" id="8_gee14"]
 
 [node name="Game" type="Node2D" unique_id=1245125645]
 script = ExtResource("1_yqjtg")
@@ -36,16 +38,21 @@ offset_bottom = -163.0
 
 [node name="TimerLabel" type="Label" parent="." unique_id=2067034984]
 unique_name_in_owner = true
-anchors_preset = 1
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 offset_left = 18.0
 offset_top = 16.0
 offset_right = 118.0
 offset_bottom = 40.0
 text = "01:00"
+
+[node name="Teacher1" type="Node2D" parent="." unique_id=602321912]
+script = ExtResource("7_u5sy4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Teacher1" unique_id=1062316477]
+
+[node name="Teacher2" type="Node2D" parent="." unique_id=173347535]
+script = ExtResource("8_gee14")
+
+[node name="Sprite2D" type="Sprite2D" parent="Teacher2" unique_id=1332246281]
 
 [connection signal="level_changed" from="." to="ForwardView" method="_on_game_level_changed"]
 [connection signal="level_changed" from="." to="LeftView" method="_on_game_level_changed"]
