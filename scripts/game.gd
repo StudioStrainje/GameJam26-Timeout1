@@ -186,9 +186,7 @@ func update_level_timer(delta: float) -> void:
 
 func update_timer_label() -> void:
 	var total_seconds := int(ceil(level_time_left))
-	var minutes := total_seconds / 60.0
-	var seconds := total_seconds % 60
-	timer_label.text = "%02d:%02d" % [minutes, seconds]
+	timer_label.text = "%02d" % total_seconds
 
 func trigger_level_failed(reason: String) -> void:
 	if not level_failed:

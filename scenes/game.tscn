@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ciccd40v1ges3" path="res://scenes/right_view.tscn" id="4_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bhcj6ax13omks" path="res://scenes/up_view.tscn" id="5_gee14"]
 [ext_resource type="PackedScene" uid="uid://c14743fdxuap7" path="res://scenes/down_view.tscn" id="6_0tnpc"]
+[ext_resource type="FontFile" uid="uid://cvls6kpiwrp4p" path="res://assets/clockfont/DISPLAY FREE TFB.ttf" id="7_0tnpc"]
 [ext_resource type="Script" uid="uid://g4g6kfm4sy7m" path="res://scripts/teacher1.gd" id="7_u5sy4"]
 [ext_resource type="Script" uid="uid://c6ahjsinqn470" path="res://scripts/teacher2.gd" id="8_gee14"]
 
@@ -42,11 +43,15 @@ offset_bottom = -163.0
 
 [node name="TimerLabel" type="Label" parent="." unique_id=2067034984]
 unique_name_in_owner = true
-offset_left = 18.0
-offset_top = 16.0
-offset_right = 118.0
-offset_bottom = 40.0
-text = "01:00"
+offset_left = -859.0
+offset_top = -466.0
+offset_right = -746.0
+offset_bottom = -361.0
+theme_override_fonts/font = ExtResource("7_0tnpc")
+theme_override_font_sizes/font_size = 80
+text = "60"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ViewTransition" type="CanvasLayer" parent="." unique_id=599154234]
 layer = 90
