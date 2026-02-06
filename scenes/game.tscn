@@ -65,6 +65,7 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("7_u5sy4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Teacher1" unique_id=1062316477]
+position = Vector2(0, -20)
 
 [node name="Teacher2" type="Node2D" parent="." unique_id=173347535]
 script = ExtResource("8_gee14")
@@ -74,5 +75,5 @@ script = ExtResource("8_gee14")
 [connection signal="level_changed" from="." to="ForwardView" method="_on_game_level_changed"]
 [connection signal="level_changed" from="." to="LeftView" method="_on_game_level_changed"]
 [connection signal="level_changed" from="." to="RightView" method="_on_game_level_changed"]
-[connection signal="level_changed" from="." to="UpView" method="_on_game_level_changed"]
 [connection signal="level_changed" from="." to="DownView" method="_on_game_level_changed"]
+[connection signal="level_changed" from="." to="UpView" method="_on_game_level_changed"]

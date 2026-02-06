@@ -6,7 +6,7 @@ var prev_view = 0
 var view = 0
 var level = 0
 var x = 0.0
-var base_x := 250.0
+var base_x = 500.0
 var t := 0.0
 var teacher_view := 0
 var display_view := 0
@@ -30,7 +30,6 @@ func _ready() -> void:
 	level = game.level
 	var y = "res://assets/teachers/lvl" + str(level) + ".png"
 	sprite.texture = load(y)
-	base_x = 250.0
 	sprite.position.x = base_x
 	teacher_view = game.get_current_view()
 	if teacher_view == game.VIEW.DOWN:
