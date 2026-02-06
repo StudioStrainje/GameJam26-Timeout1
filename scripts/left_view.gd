@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 			else:
 				if progress_bar.value < 100:
 					progress_bar.value -= dementia_pps * delta
-			if progress_bar.value == 100 and not completed:
+			if progress_bar.value >= 100 and not completed:
 				game.copied_count += 1
 				completed = true
 
@@ -41,3 +41,4 @@ func _process(delta: float) -> void:
 
 func _on_game_level_changed() -> void:
 	progress_bar.value = 0
+	completed = false

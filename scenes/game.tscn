@@ -27,6 +27,13 @@ unique_name_in_owner = true
 [node name="DownView" parent="." unique_id=1131090437 instance=ExtResource("6_0tnpc")]
 unique_name_in_owner = true
 
+[node name="Label" type="Label" parent="." unique_id=730867815]
+unique_name_in_owner = true
+offset_left = 498.0
+offset_top = -186.0
+offset_right = 538.0
+offset_bottom = -163.0
+
 [connection signal="level_changed" from="." to="ForwardView" method="_on_game_level_changed"]
 [connection signal="level_changed" from="." to="LeftView" method="_on_game_level_changed"]
 [connection signal="level_changed" from="." to="RightView" method="_on_game_level_changed"]

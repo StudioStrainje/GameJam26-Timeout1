@@ -43,3 +43,4 @@ func _process(delta: float) -> void:
 
 func _on_game_level_changed() -> void:
 	progress_bar.value = 0
+	completed = false

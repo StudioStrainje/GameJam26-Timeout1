@@ -7,6 +7,7 @@ signal level_changed
 @onready var up_view: Node2D = %UpView
 @onready var left_view: Node2D = %LeftView
 @onready var right_view: Node2D = %RightView
+@onready var level_label: Label = %Label
 
 var views: Array[Node2D]
 var cheating_views: Array[VIEW]
@@ -46,21 +47,20 @@ func generate_new_level():
 	else:
 		for i in range(3):
 			cheating_views.append(gen_random_not_in_list(1, len(VIEW)-1, cheating_views))
-	print(cheating_views)
+
 
 func level_finished():
-	print("level " + str(level) + " finished")
 	level += 1
 	generate_new_level()
 	pasted_count = 0
 	copied_count = 0
-	print("starting level " + str(level))
-	await get_tree().create_timer(.25).timeout
 	level_changed.emit()
+	level_label.text = "Level: " + str(level)
 
 func _ready() -> void:
 	views = [down_view, forward_view, up_view, left_view, right_view]
 	generate_new_level()
+	level_label.text = "Level: " + str(level)
 
 func check_views():
 	if Input.is_action_just_pressed("up"):
