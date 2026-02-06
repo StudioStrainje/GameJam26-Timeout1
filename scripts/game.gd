@@ -70,7 +70,7 @@ func level_finished():
 	copied_count = 0
 	level_changed.emit()
 	level_label.text = "Level: " + str(level)
-	get_tree().change_scene_to_file("res://scenes/level_selector.tscn")
+	SceneTransition.change_scene_with_fade("res://scenes/level_selector.tscn")
 
 func _ready() -> void:
 	var tree := get_tree()

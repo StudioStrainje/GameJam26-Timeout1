@@ -37,7 +37,7 @@ func _change_level(target_level: int) -> void:
 	if not tree:
 		return
 	tree.set_meta("selected_level", target_level)
-	tree.change_scene_to_file("res://scenes/game.tscn")
+	SceneTransition.change_scene_with_fade("res://scenes/game.tscn")
 
 
 func _on_level_1_pressed() -> void:

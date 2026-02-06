@@ -5,7 +5,8 @@ extends Node
 var menu_scenes = [
 	"mainmenu.tscn",
 	"controls.tscn",
-	"credits.tscn"
+	"credits.tscn",
+	"level_selector.tscn"
 ]
 
 const FADE_DURATION = 1.0
