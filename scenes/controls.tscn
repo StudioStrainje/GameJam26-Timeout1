@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_i2gav"]
 [ext_resource type="Texture2D" uid="uid://cnxt73c1i8l3n" path="res://assets/bringus.png" id="2_5tddo"]
-[ext_resource type="FontFile" uid="uid://lsce5bjfsakh" path="res://assets/font/FugazOne-Regular.ttf" id="3_cywyo"]
 
 [node name="Control" type="Control" unique_id=1672299568]
 layout_mode = 3
@@ -55,7 +54,6 @@ alignment = 1
 
 [node name="Button" type="Button" parent="VBoxContainer2" unique_id=908297933]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_cywyo")
 text = "Back"
 
 [connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_back_pressed"]

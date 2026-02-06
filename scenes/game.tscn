@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://ciccd40v1ges3" path="res://scenes/right_view.tscn" id="4_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bhcj6ax13omks" path="res://scenes/up_view.tscn" id="5_gee14"]
 [ext_resource type="PackedScene" uid="uid://c14743fdxuap7" path="res://scenes/down_view.tscn" id="6_0tnpc"]
-[ext_resource type="FontFile" uid="uid://lsce5bjfsakh" path="res://assets/font/FugazOne-Regular.ttf" id="7_u5sy4"]
 
 [node name="Game" type="Node2D" unique_id=1245125645]
 script = ExtResource("1_yqjtg")
@@ -34,7 +33,6 @@ offset_left = 498.0
 offset_top = -186.0
 offset_right = 538.0
 offset_bottom = -163.0
-theme_override_fonts/font = ExtResource("7_u5sy4")
 
 [connection signal="level_changed" from="." to="ForwardView" method="_on_game_level_changed"]
 [connection signal="level_changed" from="." to="LeftView" method="_on_game_level_changed"]

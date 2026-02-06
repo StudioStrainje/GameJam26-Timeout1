@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cetm26kjle3fv"]
 
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_0bpdh"]
-[ext_resource type="FontFile" uid="uid://lsce5bjfsakh" path="res://assets/font/FugazOne-Regular.ttf" id="2_2ckv8"]
 
 [node name="Control" type="Control" unique_id=1672299568]
 layout_mode = 3
@@ -35,13 +34,12 @@ alignment = 1
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1752818279]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_2ckv8")
 theme_override_font_sizes/font_size = 22
 text = "Made by the best team ever, for everyone.
 
-Backkground design: David Galambos
+Background design: David Galambos
 Characer design: Dano
-Deverlopers: Filip Konc, Dominik Toth
+Developers: Filip Konc, Dominik Toth
 Sound design: Adam Balogh
 Level and game design: all of us
 
@@ -64,7 +62,6 @@ alignment = 1
 
 [node name="Button" type="Button" parent="VBoxContainer2" unique_id=908297933]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2ckv8")
 text = "Back"
 
 [connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_back_pressed"]
