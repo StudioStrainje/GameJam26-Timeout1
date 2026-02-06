@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b53fnm3k8eg8b"]
+
+[ext_resource type="Script" uid="uid://cvb34ii8yj6kt" path="res://scripts/winscreen.gd" id="1_wg0yv"]
+[ext_resource type="Texture2D" uid="uid://cn1sc0micrv6" path="res://assets/winscreen.png" id="2_unfcc"]
+
+[node name="Control2" type="Control" unique_id=1672299568]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wg0yv")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=23077566]
+texture = ExtResource("2_unfcc")
+centered = false
+
+[node name="BackToMainMenu" type="Button" parent="." unique_id=1243755734]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 957.0
+offset_right = 506.0
+offset_bottom = 1070.0
+theme_override_colors/font_color = Color(0.31488332, 0.35, 0.301, 1)
+theme_override_colors/font_focus_color = Color(0.3137255, 0.34901962, 0.3019608, 1)
+theme_override_colors/font_pressed_color = Color(0.18050002, 0.2, 0.17400001, 1)
+theme_override_colors/font_hover_color = Color(0.3137255, 0.34901962, 0.3019608, 1)
+theme_override_font_sizes/font_size = 60
+text = "Back to Main Menu"
+flat = true
+
+[node name="Label" type="Label" parent="." unique_id=414373578]
+layout_mode = 0
+offset_left = 625.0
+offset_top = 71.0
+offset_right = 1339.0
+offset_bottom = 156.0
+theme_override_colors/font_color = Color(0.1775, 0.2, 0.17, 1)
+theme_override_font_sizes/font_size = 80
+text = "You passed all exams!"
+
+[connection signal="pressed" from="BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]

@@ -15,8 +15,8 @@ var cheating_views: Array[VIEW]
 var level: int = 1
 var copied_count = 0
 var pasted_count = 0
-var level_time_left := 60.0
-var is_level_failed := false
+var level_time_left := 10.0
+var level_failed = false
 
 enum VIEW {
 	DOWN,
@@ -67,8 +67,15 @@ func save_score(value: int):
 	file.store_var(value)
 	file.close()
 
+func win_game():
+	SceneTransition.change_scene_with_fade("res://scenes/winscreen.tscn")
+
 func level_finished():
 	level += 1
+	if level == 6:
+		win_game()
+		return
+
 	if level > load_score():
 		save_score(level)
 	generate_new_level()
@@ -133,8 +140,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		toggle_escape_menu()
 
 func toggle_escape_menu():
-	if is_level_failed:
-		return
 	var existing_menu = get_tree().root.get_node_or_null("EscapeMenu")
 	if existing_menu:
 		existing_menu.close_menu()
@@ -146,29 +151,21 @@ func toggle_escape_menu():
 		get_tree().paused = true
 
 func reset_level_timer() -> void:
-	level_time_left = 60.0
+	level_time_left = 10.0
 	update_timer_label()
 
 func update_level_timer(delta: float) -> void:
-	if is_level_failed:
-		return
 	level_time_left = max(level_time_left - delta, 0.0)
 	update_timer_label()
-	if level_time_left <= 0.0:
+	if level_time_left <= 0.0 and not level_failed:
+		level_failed = true
 		trigger_level_failed()
 
 func update_timer_label() -> void:
 	var total_seconds := int(ceil(level_time_left))
-	var minutes := total_seconds / 60
+	var minutes := total_seconds / 60.0
 	var seconds := total_seconds % 60
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
 
 func trigger_level_failed() -> void:
-	if is_level_failed:
-		return
-	is_level_failed = true
-	var failed_menu = load("res://scenes/level_failed.tscn").instantiate()
-	failed_menu.name = "LevelFailed"
-	failed_menu.process_mode = Node.PROCESS_MODE_ALWAYS
-	get_tree().root.add_child(failed_menu)
-	get_tree().paused = true
+	SceneTransition.change_scene_with_fade("res://scenes/level_failed.tscn")
