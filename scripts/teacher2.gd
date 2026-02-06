@@ -6,7 +6,7 @@ var prev_view = 0
 var view = 0
 var level = 0
 var x = 0.0
-var base_x := 250.0
+var base_x := -500.0
 var t := 0.0
 var teacher_view := 0
 var display_view := 0
@@ -37,7 +37,6 @@ func _ready() -> void:
 		x = get_window().size.x + 25.0
 	level = game.level
 	_set_random_teacher_sprite()
-	base_x = 0.0
 	slide_from_right = false
 	sprite.position.x = base_x
 	teacher_view = _get_random_teacher_view()

@@ -1,14 +1,16 @@
 extends CanvasLayer
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var background: ColorRect = %ColorRect
+@onready var background: Sprite2D = %Background
+@onready var overlay: ColorRect = %Overlay
 @onready var menu: Control = %VBoxContainer
 
 var is_closing := false
 var pending_scene_path := ""
 
 func _ready() -> void:
-	background.color = Color(0, 0, 0, 0)
+	background.modulate.a = 0.0
+	overlay.color.a = 0.0
 	menu.modulate.a = 0.0
 	animation_player.play("fade_in")
 

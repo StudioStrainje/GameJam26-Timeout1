@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dw3xc2ve2vprr"]
 
 [ext_resource type="Script" uid="uid://chmyxt8678aeg" path="res://scripts/escape.gd" id="1_fu77f"]
+[ext_resource type="Texture2D" uid="uid://0n8lbbq7t52g" path="res://assets/pausemenu.png" id="2_pausemenu"]
 
 [sub_resource type="Animation" id="Animation_y4u7x"]
 resource_name = "fade_in"
@@ -8,22 +9,34 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/ColorRect:color")
+tracks/0/path = NodePath("Control/Background:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.35)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/VBoxContainer:modulate")
+tracks/1/path = NodePath("Control/Overlay:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/VBoxContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -36,22 +49,34 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/ColorRect:color")
+tracks/0/path = NodePath("Control/Background:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0.19607843), Color(0, 0, 0, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/VBoxContainer:modulate")
+tracks/1/path = NodePath("Control/Overlay:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.2), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/VBoxContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -77,45 +102,71 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1375690296]
+[node name="Overlay" type="ColorRect" parent="Control" unique_id=1375690296]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1528751656]
+[node name="Background" type="Sprite2D" parent="Control" unique_id=23077566]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
+texture = ExtResource("2_pausemenu")
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1528751656]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -82.5
-offset_top = -68.0
-offset_right = 82.5
-offset_bottom = 68.0
+offset_left = -619.0
+offset_top = -337.0
+offset_right = -158.0
+offset_bottom = 247.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 80
 alignment = 1
 
 [node name="Resume" type="Button" parent="Control/VBoxContainer" unique_id=399609985]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.26990002, 0.3, 0.25800002, 1)
+theme_override_colors/font_focus_color = Color(0.27058825, 0.3019608, 0.25882354, 1)
+theme_override_colors/font_pressed_color = Color(0.17946666, 0.2, 0.172, 1)
+theme_override_colors/font_hover_color = Color(0.27058825, 0.3019608, 0.25882354, 1)
+theme_override_font_sizes/font_size = 90
 text = "Resume"
+flat = true
 
 [node name="Levels" type="Button" parent="Control/VBoxContainer" unique_id=240753757]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.27058825, 0.3019608, 0.25882354, 1)
+theme_override_colors/font_focus_color = Color(0.27058825, 0.3019608, 0.25882354, 1)
+theme_override_colors/font_pressed_color = Color(0.17946666, 0.2, 0.172, 1)
+theme_override_colors/font_hover_color = Color(0.27058825, 0.3019608, 0.25882354, 1)
+theme_override_font_sizes/font_size = 90
 text = "Levels"
+flat = true
 
 [node name="MainMenu" type="Button" parent="Control/VBoxContainer" unique_id=1243755734]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.27058825, 0.3019608, 0.25882354, 1)
+theme_override_colors/font_focus_color = Color(0.27058825, 0.3019608, 0.25882354, 1)
+theme_override_colors/font_pressed_color = Color(0.17946666, 0.2, 0.172, 1)
+theme_override_colors/font_hover_color = Color(0.27058825, 0.3019608, 0.25882354, 1)
+theme_override_font_sizes/font_size = 90
 text = "Main Menu"
+flat = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1847563293]
 libraries/ = SubResource("AnimationLibrary_m5qkf")
