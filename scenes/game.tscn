@@ -7,8 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bhcj6ax13omks" path="res://scenes/up_view.tscn" id="5_gee14"]
 [ext_resource type="PackedScene" uid="uid://c14743fdxuap7" path="res://scenes/down_view.tscn" id="6_0tnpc"]
 [ext_resource type="FontFile" uid="uid://cvls6kpiwrp4p" path="res://assets/clockfont/DISPLAY FREE TFB.ttf" id="7_0tnpc"]
-[ext_resource type="Script" uid="uid://g4g6kfm4sy7m" path="res://scripts/teacher1.gd" id="7_u5sy4"]
-[ext_resource type="Script" uid="uid://c6ahjsinqn470" path="res://scripts/teacher2.gd" id="8_gee14"]
+[ext_resource type="Script" path="res://scripts/teacher.gd" id="7_teacher"]
 [ext_resource type="AudioStream" uid="uid://8j3adjmycn3q" path="res://assets/neon.ogg" id="9_neon"]
 [ext_resource type="AudioStream" uid="uid://dqtv0y68norie" path="res://assets/char1.ogg" id="10_char1"]
 [ext_resource type="AudioStream" uid="uid://d1t6h2p8m4w9f" path="res://assets/char2.ogg" id="11_char2"]
@@ -74,15 +73,28 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Teacher1" type="Node2D" parent="." unique_id=602321912]
-script = ExtResource("7_u5sy4")
+script = ExtResource("7_teacher")
+direction = 1
+active_from_level = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Teacher1" unique_id=1062316477]
 position = Vector2(0, -20)
 
 [node name="Teacher2" type="Node2D" parent="." unique_id=173347535]
-script = ExtResource("8_gee14")
+script = ExtResource("7_teacher")
+direction = 0
+active_from_level = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Teacher2" unique_id=1332246281]
+
+[node name="Teacher3" type="Node2D" parent="."]
+script = ExtResource("7_teacher")
+direction = 2
+active_from_level = 5
+active_until_level = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Teacher3"]
+position = Vector2(0, -20)
 
 [node name="AmbientNeon" type="AudioStreamPlayer" parent="." unique_id=2095585602]
 stream = ExtResource("9_neon")
