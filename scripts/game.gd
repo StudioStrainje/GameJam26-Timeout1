@@ -83,20 +83,19 @@ func get_level_sprite_index() -> int:
 	used_sprite_indices.append(idx)
 	return idx
 
-func get_teacher_offset(teacher_num: int) -> float:
-	match teacher_num:
-		1: return -80.0
-		2: return 0.0
-		3: return 80.0
-		_: return 0.0
+func get_sprite_scale(sprite_path: String) -> Vector2:
+	if sprite_path.ends_with("lvl1.png"):
+		return Vector2(1.0, 1.0)
+	else:
+		return Vector2(0.8, 0.8)
 
 func assign_teacher_sprites() -> void:
 	used_sprite_indices = []
-	teacher1._set_level_sprite()
+	teacher1.set_level_sprite()
 	if level >= 2:
-		teacher2._set_unique_sprite()
+		teacher2.set_unique_sprite()
 	if level == 5:
-		teacher3._set_unique_sprite()
+		teacher3.set_unique_sprite()
 
 func get_pipik_multiplier():
 	match level:
