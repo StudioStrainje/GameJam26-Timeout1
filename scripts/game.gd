@@ -14,8 +14,12 @@ signal level_changed
 @onready var level3_music: AudioStreamPlayer = %Level3Music
 @onready var level4_music: AudioStreamPlayer = %Level4Music
 @onready var level5_music: AudioStreamPlayer = %Level5Music
+@onready var teacher1: Node2D = $Teacher1
+@onready var teacher2: Node2D = $Teacher2
+@onready var teacher3: Node2D = $Teacher3
 
 var views: Array[Node2D]
+var teacher_move_sound: AudioStreamPlayer
 var cheating_views: Array[VIEW]
 var level: int = 1
 var copied_count = 0
@@ -39,6 +43,16 @@ var view_transition_tween: Tween
 var is_view_transitioning := false
 
 var rng = RandomNumberGenerator.new()
+var used_sprite_indices: Array[int] = []
+
+var move_sound: AudioStream = preload("res://assets/teachers/sounds/4.wav")
+var teacher_sprite_paths := [
+	"res://assets/teachers/lvl1.png",
+	"res://assets/teachers/lvl2.png",
+	"res://assets/teachers/lvl3.png",
+	"res://assets/teachers/lvl4.png",
+	"res://assets/teachers/lvl5.png"
+]
 
 func get_current_view():
 	return current_view
@@ -48,6 +62,41 @@ func get_level() -> int:
 
 func get_cheating_views():
 	return cheating_views
+
+func get_unique_sprite_index(exclude_indices: Array[int] = []) -> int:
+	var available: Array[int] = []
+	for i in range(teacher_sprite_paths.size()):
+		if i not in used_sprite_indices and i not in exclude_indices:
+			available.append(i)
+	if available.is_empty():
+		return rng.randi_range(0, teacher_sprite_paths.size() - 1)
+	var idx = available[rng.randi_range(0, available.size() - 1)]
+	used_sprite_indices.append(idx)
+	return idx
+
+func get_level_sprite_index() -> int:
+	var idx = level - 1
+	if idx >= teacher_sprite_paths.size():
+		idx = teacher_sprite_paths.size() - 1
+	if idx in used_sprite_indices:
+		used_sprite_indices.erase(idx)
+	used_sprite_indices.append(idx)
+	return idx
+
+func get_teacher_offset(teacher_num: int) -> float:
+	match teacher_num:
+		1: return -80.0
+		2: return 0.0
+		3: return 80.0
+		_: return 0.0
+
+func assign_teacher_sprites() -> void:
+	used_sprite_indices = []
+	teacher1._set_level_sprite()
+	if level >= 2:
+		teacher2._set_unique_sprite()
+	if level == 5:
+		teacher3._set_unique_sprite()
 
 func get_pipik_multiplier():
 	match level:
@@ -66,6 +115,7 @@ func gen_random_not_in_list(min_range: int, max_range: int, list: Array) -> int:
 
 func generate_new_level():
 	cheating_views = []
+	used_sprite_indices = []
 	if level < 3:
 		for i in range(level):
 			cheating_views.append(gen_random_not_in_list(1, len(VIEW)-1, cheating_views))
@@ -119,9 +169,20 @@ func _ready() -> void:
 	level5_music.playing = level == 5
 	views = [down_view, forward_view, up_view, left_view, right_view]
 	generate_new_level()
+	assign_teacher_sprites()
 	reset_level_timer()
 	update_timer_label()
 	view_fade.modulate.a = 0.0
+	teacher_move_sound = AudioStreamPlayer.new()
+	teacher_move_sound.stream = move_sound
+	add_child(teacher_move_sound)
+	teacher1.teacher_moving.connect(_on_teacher_moving)
+	teacher2.teacher_moving.connect(_on_teacher_moving)
+	teacher3.teacher_moving.connect(_on_teacher_moving)
+
+func _on_teacher_moving() -> void:
+	if teacher_move_sound and teacher_move_sound.stream:
+		teacher_move_sound.play()
 
 func check_views():
 	if is_view_transitioning:
