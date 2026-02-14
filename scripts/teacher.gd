@@ -123,7 +123,11 @@ func _update_visibility() -> void:
 	sprite.visible = (player_view == teacher_view) and _is_active_level()
 
 func _check_collision() -> void:
-	if game.copying == teacher_view and game.get_current_view() == teacher_view:
+	var player_view = game.get_current_view()
+	if player_view == game.VIEW.UP and game.copying == game.VIEW.UP and teacher_view == game.VIEW.FORWARD:
+		game.trigger_level_failed("teacher")
+		return
+	if game.copying == teacher_view and player_view == teacher_view:
 		game.trigger_level_failed("teacher")
 
 func _get_initial_teacher_view() -> int:
@@ -138,7 +142,7 @@ func _get_initial_teacher_view() -> int:
 func _get_next_teacher_view(from_view: int) -> int:
 	var candidates: Array[int] = []
 	for i in range(game.VIEW.size()):
-		if i != game.VIEW.DOWN:
+		if i != game.VIEW.DOWN and i != game.VIEW.UP:
 			candidates.append(i)
 	
 	if candidates.is_empty():
