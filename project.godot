@@ -10,9 +10,12 @@ config_version=5
 
 [application]
 
-config/name="GameJam26-Timeout1"
+config/name="One Minute Left!"
+config/description="From Monday to Friday, you have to deal with exams from different teachers. However, you are not a very good student. You have to cheat to get a passing grade, but the attending teacher(s) have very sharp vision."
+config/version="1.1"
 run/main_scene="uid://dqlt1qrqa5s1p"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/image="uid://c3qug82l8ienw"
 config/icon="uid://qif5fdx7edjy"
 
 [autoload]
