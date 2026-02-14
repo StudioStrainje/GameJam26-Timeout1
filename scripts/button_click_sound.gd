@@ -22,9 +22,19 @@ func _connect_buttons_in_tree(node: Node) -> void:
 func _connect_button(node: Node) -> void:
 	if node is BaseButton:
 		var button := node as BaseButton
+		if _is_mobile_control_button(button):
+			return
 		var handler := Callable(self, "_on_button_pressed")
 		if not button.pressed.is_connected(handler):
 			button.pressed.connect(handler)
+
+func _is_mobile_control_button(button: BaseButton) -> bool:
+	var parent := button.get_parent()
+	while parent:
+		if parent.name == "MobileControls" or parent.name == "ControlContainer":
+			return true
+		parent = parent.get_parent()
+	return false
 
 func _on_button_pressed() -> void:
 	if click_player and click_player.stream:
