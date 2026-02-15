@@ -20,6 +20,7 @@ signal level_changed
 
 var views: Array[Node2D]
 var teacher_move_sound: AudioStreamPlayer
+var teacher_sound_queue_time := 0.0
 var cheating_views: Array[VIEW]
 var level: int = 1
 var copied_count = 0
@@ -181,7 +182,9 @@ func _ready() -> void:
 
 func _on_teacher_moving() -> void:
 	if teacher_move_sound and teacher_move_sound.stream:
-		teacher_move_sound.play()
+		var delay = teacher_sound_queue_time
+		teacher_sound_queue_time += 0.3
+		get_tree().create_timer(delay).timeout.connect(func(): teacher_move_sound.play())
 
 func check_views():
 	if is_view_transitioning:
@@ -236,6 +239,7 @@ func print_view():
 		VIEW.RIGHT: print("right")
 
 func _process(_delta: float) -> void:
+	teacher_sound_queue_time = 0.0
 	check_views()
 	switch_view_visibility()
 	update_level_timer(_delta)
