@@ -66,6 +66,7 @@ func _process(delta: float) -> void:
 	
 	if is_animating:
 		_update_idle_animation(delta)
+		_update_visibility()
 		return
 	
 	view_timer += delta
