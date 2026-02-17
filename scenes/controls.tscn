@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cpq4ixkc4cmoj"]
 
-[ext_resource type="Script" uid="uid://ldmcakqc873q" path="res://scripts/credits.gd" id="1_i2gav"]
+[ext_resource type="Script" path="res://scripts/controls.gd" id="1_i2gav"]
 [ext_resource type="Texture2D" uid="uid://c5pji3ta2gg12" path="res://assets/controls.png" id="2_5tddo"]
+[ext_resource type="Texture2D" uid="uid://cpdux743hecaj" path="res://assets/arrow.png" id="3_arrow"]
 
 [node name="Control" type="Control" unique_id=1672299568]
 layout_mode = 3
@@ -15,6 +16,123 @@ script = ExtResource("1_i2gav")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1353737821]
 texture = ExtResource("2_5tddo")
 centered = false
+
+[node name="MobileOverlay" type="Control" parent="." unique_id=251234567]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LeftArrow" type="Sprite2D" parent="MobileOverlay" unique_id=1550690515]
+position = Vector2(433.99997, 569)
+rotation = -3.1415927
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_arrow")
+
+[node name="LeftLabel" type="Label" parent="MobileOverlay" unique_id=1208689683]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 536.0
+offset_right = 361.0
+offset_bottom = 576.0
+theme_override_colors/font_color = Color(0.080000006, 0.1, 0.080000006, 1)
+theme_override_font_sizes/font_size = 35
+text = "Look left"
+
+[node name="RightArrow" type="Sprite2D" parent="MobileOverlay" unique_id=755693913]
+position = Vector2(640, 569)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_arrow")
+
+[node name="RightLabel" type="Label" parent="MobileOverlay" unique_id=1720606295]
+layout_mode = 0
+offset_left = 712.0
+offset_top = 530.0
+offset_right = 872.0
+offset_bottom = 570.0
+theme_override_colors/font_color = Color(0.080000006, 0.1, 0.080000006, 1)
+theme_override_font_sizes/font_size = 35
+text = "Look right"
+
+[node name="UpArrow" type="Sprite2D" parent="MobileOverlay" unique_id=954584446]
+position = Vector2(538, 467.99997)
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_arrow")
+
+[node name="UpLabel" type="Label" parent="MobileOverlay" unique_id=1676682678]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 356.0
+offset_right = 617.0
+offset_bottom = 396.0
+theme_override_colors/font_color = Color(0.080000006, 0.1, 0.080000006, 1)
+theme_override_font_sizes/font_size = 35
+text = "Look up"
+
+[node name="DownArrow" type="Sprite2D" parent="MobileOverlay" unique_id=1488979840]
+position = Vector2(539, 670)
+rotation = 1.5707964
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_arrow")
+
+[node name="DownLabel" type="Label" parent="MobileOverlay" unique_id=372044511]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 741.0
+offset_right = 613.0
+offset_bottom = 781.0
+theme_override_colors/font_color = Color(0.080000006, 0.1, 0.080000006, 1)
+theme_override_font_sizes/font_size = 35
+text = "Look down"
+
+[node name="CopyBtn" type="Button" parent="MobileOverlay" unique_id=789705900]
+layout_mode = 0
+offset_left = 1199.0
+offset_top = 443.0
+offset_right = 1299.0
+offset_bottom = 543.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.6784314, 0.8509804, 0.6901961, 1)
+theme_override_colors/font_pressed_color = Color(0.47843137, 0.6, 0.4862745, 1)
+theme_override_font_sizes/font_size = 30
+text = "Copy"
+
+[node name="CopyLabel" type="Label" parent="MobileOverlay" unique_id=1626963528]
+layout_mode = 0
+offset_left = 1321.0
+offset_top = 475.0
+offset_right = 1484.0
+offset_bottom = 518.0
+theme_override_colors/font_color = Color(0.080000006, 0.1, 0.080000006, 1)
+theme_override_font_sizes/font_size = 40
+text = "Copy from cheatsheet"
+
+[node name="PasteBtn" type="Button" parent="MobileOverlay" unique_id=323868028]
+layout_mode = 0
+offset_left = 1202.0
+offset_top = 613.0
+offset_right = 1302.0
+offset_bottom = 713.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.6784314, 0.8509804, 0.6901961, 1)
+theme_override_colors/font_pressed_color = Color(0.47843137, 0.6, 0.4862745, 1)
+theme_override_font_sizes/font_size = 30
+text = "Paste"
+
+[node name="PasteLabel" type="Label" parent="MobileOverlay" unique_id=1467694038]
+layout_mode = 0
+offset_left = 1322.0
+offset_top = 646.0
+offset_right = 1488.0
+offset_bottom = 689.0
+theme_override_colors/font_color = Color(0.080000006, 0.1, 0.08133333, 1)
+theme_override_font_sizes/font_size = 40
+text = "Paste onto test"
 
 [node name="Back" type="Button" parent="." unique_id=1517782816]
 unique_name_in_owner = true
