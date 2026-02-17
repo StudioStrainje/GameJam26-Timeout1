@@ -17,6 +17,14 @@
 [ext_resource type="Script" uid="uid://5gy4gin6yqit" path="res://scripts/mobile_controls.gd" id="15_mobile"]
 [ext_resource type="Texture2D" uid="uid://cpdux743hecaj" path="res://assets/arrow.png" id="16_ca42v"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_normal"]
+bg_color = Color(0.1, 0.1, 0.1, 0.8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pressed"]
+bg_color = Color(0.05, 0.05, 0.05, 0.8)
+
 [node name="Game" type="Node2D" unique_id=1245125645]
 script = ExtResource("1_yqjtg")
 
@@ -141,10 +149,13 @@ mouse_filter = 2
 
 [node name="LeftBtn" type="Button" parent="MobileControls/ControlContainer" unique_id=1093246061]
 layout_mode = 0
+focus_mode = 0
 offset_left = 57.0
 offset_top = 822.0
 offset_right = 152.0
 offset_bottom = 916.0
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1")
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MobileControls/ControlContainer/LeftBtn" unique_id=1341510371]
@@ -155,10 +166,13 @@ texture = ExtResource("16_ca42v")
 
 [node name="RightBtn" type="Button" parent="MobileControls/ControlContainer" unique_id=645136043]
 layout_mode = 0
+focus_mode = 0
 offset_left = 263.0
 offset_top = 822.0
 offset_right = 358.0
 offset_bottom = 916.0
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1")
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MobileControls/ControlContainer/RightBtn" unique_id=451056981]
@@ -168,10 +182,13 @@ texture = ExtResource("16_ca42v")
 
 [node name="UpBtn" type="Button" parent="MobileControls/ControlContainer" unique_id=1855363889]
 layout_mode = 0
+focus_mode = 0
 offset_left = 161.0
 offset_top = 721.0
 offset_right = 256.0
 offset_bottom = 815.0
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1")
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MobileControls/ControlContainer/UpBtn" unique_id=646784988]
@@ -182,10 +199,13 @@ texture = ExtResource("16_ca42v")
 
 [node name="DownBtn" type="Button" parent="MobileControls/ControlContainer" unique_id=853555150]
 layout_mode = 0
+focus_mode = 0
 offset_left = 162.0
 offset_top = 923.0
 offset_right = 257.0
 offset_bottom = 1017.0
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1")
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MobileControls/ControlContainer/DownBtn" unique_id=1981550101]
@@ -196,23 +216,37 @@ texture = ExtResource("16_ca42v")
 
 [node name="CopyBtn" type="Button" parent="MobileControls/ControlContainer" unique_id=1383386823]
 layout_mode = 0
+focus_mode = 0
 offset_left = 1608.0
 offset_top = 885.0
 offset_right = 1708.0
 offset_bottom = 985.0
 theme_override_colors/font_color = Color(0.6784314, 0.8509804, 0.6901961, 1)
+theme_override_colors/font_focus_color = Color(0.6784314, 0.8509804, 0.6901961, 1)
+theme_override_colors/font_hover_color = Color(0.6784314, 0.8509804, 0.6901961, 1)
 theme_override_colors/font_pressed_color = Color(0.47843137, 0.6, 0.4862745, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_normal")
+theme_override_styles/focus = SubResource("StyleBoxFlat_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
 theme_override_font_sizes/font_size = 30
 text = "Copy"
 
 [node name="PasteBtn" type="Button" parent="MobileControls/ControlContainer" unique_id=1966588449]
 layout_mode = 0
+focus_mode = 0
 offset_left = 1770.0
 offset_top = 885.0
 offset_right = 1870.0
 offset_bottom = 985.0
 theme_override_colors/font_color = Color(0.6784314, 0.8509804, 0.6901961, 1)
+theme_override_colors/font_focus_color = Color(0.6784314, 0.8509804, 0.6901961, 1)
+theme_override_colors/font_hover_color = Color(0.6784314, 0.8509804, 0.6901961, 1)
 theme_override_colors/font_pressed_color = Color(0.47843137, 0.6, 0.4862745, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_normal")
+theme_override_styles/focus = SubResource("StyleBoxFlat_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
 theme_override_font_sizes/font_size = 30
 text = "Paste"
 
